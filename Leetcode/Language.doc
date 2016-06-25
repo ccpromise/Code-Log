@@ -1,0 +1,713 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset134 SimSun;}{\f2\fnil\fcharset134 Simsun;}{\f3\fnil\fcharset0 Simsun;}{\f4\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red51\green51\blue51;\red255\green255\blue255;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.10240}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 0\\general\par
+(1) .NET Framework\par
+\tab Microsoft\f1\lang2052\'ce\'aa\'bf\'aa\'b7\'a2\'d3\'a6\'d3\'c3\'b3\'cc\'d0\'f2\'b6\'f8\'b4\'b4\'bd\'a8\'b5\'c4\'d2\'bb\'b8\'f6\'be\'df\'d3\'d0\'b8\'ef\'c3\'fc\'d2\'e2\'d2\'e5\'b5\'c4\'c6\'bd\'cc\'a8\'a3\'ac\'ca\'b9\'d3\'c3\'cb\'fc\'b5\'c4\'d2\'bb\'b8\'f6\'d6\'d8\'d2\'aa\'d4\'ad\'d2\'f2\'ca\'c7\'cb\'fc\'bf\'c9\'d2\'d4\'d7\'f7\'ce\'aa\'bc\'af\'b3\'c9\'b8\'f7\'d6\'d6\'b2\'d9\'d7\'f7\'cf\'b5\'cd\'b3\'b5\'c4\'b7\'bd\'ca\'bd\'a1\'a3\'bf\'c9\'d3\'c3\'d3\'da\'b4\'b4\'bd\'a8Windows\'d3\'a6\'d3\'c3\'b3\'cc\'d0\'f2\'a1\'a2Web\'d3\'a6\'d3\'c3\'b3\'cc\'d0\'f2\'a1\'a2Web\'b7\'fe\'ce\'f1\'ba\'cd\'c6\'e4\'cb\'fb\'b8\'f7\'d6\'d6\'c0\'e0\'d0\'cd\'b5\'c4\'d3\'a6\'d3\'c3\'b3\'cc\'d0\'f2\f0\lang9\par
+\par
+\par
+1\\c++\par
+## #########################################################\f1\'bd\'e2\'ca\'cd\'c6\'f7\'ba\'cd\'b1\'e0\'d2\'eb\'c6\'f7\f0\par
+Computers understand only one language and that language consists of sets of instructions made of ones and zeros. \par
+ computer language is appropriately called machine language.\par
+Because a computer can only understand machine language and humans wish to write in high level languages high level languages \par
+have to be re-written (translated) into machine language at some point. This is done by special programs called compilers, interpreters, \par
+or assemblers that are built into the various programming applications.\par
+\f1\'bd\'e2\'ca\'cd\'c6\'f7\'ca\'c7\'d2\'bb\'cc\'f5\'d2\'bb\'cc\'f5\'b5\'c4\'bd\'e2\'ca\'cd\'d6\'b4\'d0\'d0\'d4\'b4\'d3\'ef\'d1\'d4\'a1\'a3\'b1\'c8\'c8\'e7\f0 php\f1\'a3\'ac\f0 postscritp\f1\'a3\'ac\f0 javascript\f1\'be\'cd\'ca\'c7\'b5\'e4\'d0\'cd\'b5\'c4\'bd\'e2\'ca\'cd\'d0\'d4\'d3\'ef\'d1\'d4\'a1\'a3\'a1\'a1\'a1\'a1\f0\par
+\f1\'b1\'e0\'d2\'eb\'c6\'f7\'ca\'c7\'b0\'d1\'d4\'b4\'b4\'fa\'c2\'eb\'d5\'fb\'b8\'f6\'b1\'e0\'d2\'eb\'b3\'c9\'c4\'bf\'b1\'ea\'b4\'fa\'c2\'eb\'a3\'ac\'d6\'b4\'d0\'d0\'ca\'b1\'b2\'bb\'d4\'da\'d0\'e8\'d2\'aa\'b1\'e0\'d2\'eb\'c6\'f7\'a3\'ac\'d6\'b1\'bd\'d3\'d4\'da\'d6\'a7\'b3\'d6\'c4\'bf\'b1\'ea\'b4\'fa\'c2\'eb\'b5\'c4\'c6\'bd\'cc\'a8\'c9\'cf\'d4\'cb\'d0\'d0\'a3\'ac\'d5\'e2\'d1\'f9\'d6\'b4\'d0\'d0\'d0\'a7\'c2\'ca\'b1\'c8\'bd\'e2\'ca\'cd\'d6\'b4\'d0\'d0\'bf\'ec\'ba\'dc\'b6\'e0\'a1\'a3\'b1\'c8\'c8\'e7\f0 C\f1\'d3\'ef\'d1\'d4\'b4\'fa\'c2\'eb\'b1\'bb\'b1\'e0\'d2\'eb\'b3\'c9\'b6\'fe\'bd\'f8\'d6\'c6\'b4\'fa\'c2\'eb\'a3\'a8\f0 exe\f1\'b3\'cc\'d0\'f2\'a3\'a9\'a3\'ac\'d4\'da\f0 windows\f1\'c6\'bd\'cc\'a8\'c9\'cf\'d6\'b4\'d0\'d0\'a1\'a3\f0\par
+\par
+############################################################# \f1\'cd\'b7\'ce\'c4\'bc\'fe\f0 &\f1\'d4\'a4\'b4\'a6\'c0\'ed\f0\par
+#include<> \f1\'d2\'fd\'d3\'c3\'b1\'ea\'d7\'bc\'bf\'e2\'b5\'c4\'cd\'b7\'ce\'c4\'bc\'fe\f0\par
+#include"" \f1\'b7\'c7\'b1\'ea\'d7\'bc\'bf\'e2\f0\par
+<limits> \f1\'b1\'ed\'ca\'f6\f0 numeric_limits\par
+<string>\par
+#define PI 3.1415926  equals-to const int PI = 3.1415926;\par
+\par
+############################################################# \f1\'c3\'fb\'b3\'c6\'bf\'d5\'bc\'e4\f0\par
+using namespace std\f1\'a3\'bb\f0\par
+\f1\'d4\'da\'ca\'b9\'d3\'c3\f0 std\f1\'d6\'d0\'b5\'c4\'d4\'aa\'cb\'d8\'ca\'b1\'b2\'bb\'d3\'c3\'c7\'b0\'d7\'ba\f0 std::\f1\'a3\'ac\'c8\'e7\f0 cout instead of std::cout\par
+\par
+\par
+############################################################# poiter and reference\par
+## reference & dereference\par
+int f;\par
+int *pt = &f;\tab //reference\par
+*pt = f;\tab //dereference a pointer by * gets the value in address.\par
+## reference & pointer\par
+int f;\par
+int &ref = f;\tab //reference\par
+int *pt = &f;\tab //pointer\par
+*pt ++;\par
+ref ++;\par
+difference:\par
+\tab 1\\ \f1\'c9\'f9\'c3\'f7\'d3\'eb\'ca\'b9\'d3\'c3\'b2\'bb\'cd\'ac\'a3\'ac\'c8\'e7\'c9\'cf\'cb\'f9\'ca\'be\f0\par
+\tab 2\\ reference is const \f1\'d4\'da\'c9\'f9\'c3\'f7\'ca\'b1\'b1\'d8\'d0\'eb\'b0\'f3\'b6\'a8\'b6\'d4\'cf\'f3\'b2\'a2\'c7\'d2\'ce\'de\'b7\'a8\'d6\'d8\'d0\'c2\'b0\'f3\'b6\'a8\'b5\'bd\'d0\'c2\'b5\'c4\'b6\'d4\'cf\'f3\f0\par
+\tab\par
+## \f1\'ca\'fd\'d7\'e9\'ba\'cd\'d6\'b8\'d5\'eb\f0\par
+// more pointers\par
+#include <iostream>\par
+using namespace std;\par
+\par
+int main ()\par
+\{\par
+  int numbers[5];\par
+  int * p;\par
+  p = numbers;  *p = 10;\par
+  p++;  *p = 20;\par
+  p = &numbers[2];  *p = 30;\par
+  p = numbers + 3;  *p = 40;\par
+  p = numbers;  *(p+4) = 50;\par
+  for (int n=0; n<5; n++)\par
+    cout << numbers[n] << ", ";\par
+  return 0;\par
+\}\par
+\par
+## const and pointer\par
+int v = 2, w;\par
+const int* p = &v;\par
+const int* const q = &v;\par
+int* const q = &v;\par
+1)not able to modify v by pointer p, e.g *p = 1 is not allowed. p can only read v, not modify v.\par
+\tab but p can modify itself, e.g p ++, p = &w;\par
+2)q cannot modify v, q cannot modify itself neither.\par
+3)q++ is not allowed, *q = 1 is allowed.\par
+\par
+char* pt = "string";\par
+\par
+## dynamic memory in C++\par
+new and delete for allocating dynamic memory\par
+int *p = new int;\par
+char *q = new char[5];\par
+Rectangel *r = new Rectangel(5,6);\par
+delete p;\par
+delete[] q;\par
+\par
+\par
+##shallow copy and deep copy\par
+string a = new string(*pt);  //deep copy, construct a distinct object.\par
+string a = *pt;\tab\tab //shallow copy, when changing *pt, a changes too.\par
+\par
+\tab\par
+\tab\par
+################################################################## input & output\par
+string mystr;\par
+float price;\par
+getline(cin,mystr);\par
+stringstream(mystr)>>price;\tab\tab //extract the content to price.\par
+//\tab getline and stringstream get users more control over the input.\par
+\par
+\par
+################################################################## function\par
+arguments passed by value and by reference: \f1\'b2\'ce\'ca\'fd\'b0\'b4\'d6\'b5\'b4\'ab\'b5\'dd\f0  % \f1\'b0\'b4\'d2\'fd\'d3\'c3\'b4\'ab\'b5\'dd\f0\par
+void f(int& n)\{n += 1;\}\par
+int n = 1;\par
+f(n);\par
+void f(const int& n) which means f cannot change the value of parameter. \par
+\par
+\f1\'c4\'da\'c1\'aa\'ba\'af\'ca\'fd\f0\par
+inline void f(int a) \{\}\par
+Calling a function generally causes a certain overhead (stacking arguments, jumps, etc...), \par
+and thus for very short functions, it may be more efficient to simply insert the code of the function where it is called, \par
+instead of performing the process of formally calling a function.\par
+Functions cannot be called before they are declared. // \f1\'c9\'f9\'c3\'f7\'ba\'af\'ca\'fd\'ba\'cd\'b6\'a8\'d2\'e5\'ba\'af\'ca\'fd\'b2\'bb\'cd\'ac\f0\par
+void f(int, int);\par
+\par
+\f1\'ba\'af\'ca\'fd\'d6\'d8\'d4\'d8\'a3\'ba\'d4\'da\f0 c++\f1\'bf\'c9\'d2\'d4\'b6\'a8\'d2\'e5\'b6\'e0\'b8\'f6\'c3\'fb\'b3\'c6\'cf\'e0\'cd\'ac\'b5\'ab\'b2\'ce\'ca\'fd\'c1\'d0\'b1\'ed\'b2\'bb\'cd\'ac\'b5\'c4\'ba\'af\'ca\'fd\'a1\'a3\'ba\'af\'ca\'fd\'bf\'c9\'d2\'d4\'d3\'d0\'b2\'bb\'cd\'ac\'b5\'c4\f0 body\f1\'a1\'a3\f0\par
+void f(int, int);\par
+void f(float);\par
+string f(string,int,float);\par
+\f1\'ba\'af\'ca\'fd\'c4\'a3\'b0\'e5\'a3\'ba\'b6\'d4\'b2\'bb\'cd\'ac\'b5\'c4\'b2\'ce\'ca\'fd\'c0\'e0\'d0\'cd\'b6\'a8\'d2\'e5\'cf\'e0\'cd\'ac\'b5\'c4\'b2\'d9\'d7\'f7\'a1\'a3\f0\par
+template<class T, class U>\par
+void are_equal(T a, U b) \{\par
+\tab T c;\par
+\tab c = a + b;\par
+\}\par
+are_equal<int,float>(1, 2.0);\par
+are_equal(1, 2.0);\par
+\par
+\par
+####################################################################### visibility\par
+\f1\'d7\'f7\'d3\'c3\'d3\'f2\f0\par
+namespace\par
+storage class: \f1\'be\'b2\'cc\'ac\'b4\'e6\'b4\'a2\f0  \f1\'d7\'d4\'b6\'af\'b4\'e6\'b4\'a2\'a3\'a8\'d5\'bb\'a3\'a9\f0  \f1\'b6\'af\'cc\'ac\'b4\'e6\'b4\'a2\'a3\'a8\'b6\'d1\'a3\'a9\f0  \par
+\tab\par
+###################################################################### some basics\par
+int foo = 3;\par
+auto bar = foo;\par
+decltype(foo) bar;\par
+\par
+condition ? result1 : result2 \par
+\par
+int i;\par
+float f = 3.14;\par
+i = (int) f;\par
+i = sizeof (f);\par
+\par
+\f1\'bd\'e1\'b9\'b9\f0\par
+contain different types of data.\par
+The arrow operator (->) is a dereference operator that is used exclusively with pointers to objects that have members. \par
+a.b\par
+p->b\par
+*p.b\par
+\par
+\par
+A::b\tab //A is class_name and b is class member   or    A is namespace and b is name in that space\par
+\par
+\par
+\par
+####################################################################### Class\par
+access specifier: private(default) public protected\par
+define a member of class outside the class:\par
+class Rectangel \{public: void set_value (int, int);\}\par
+void Rectangel::set_value (int a, int b)\{\}\par
+\par
+\f1\'b9\'b9\'d4\'ec\'c6\'f7\f0 , no returned value, can be defined either inside or outside:\par
+class Rectangel \{\par
+\tab public: \par
+\tab\tab Rectangel(int,int) \{\}\par
+\}\par
+overload constructor:\par
+class Rectangel \{\par
+\tab public:\par
+\tab\tab Rectangel(int, int) \{\}\tab\tab  //Rectangel reca(2, 3);\par
+\tab\tab Rectangel() \{\}               //Rectangel recb;            will call the default constructor\par
+\}\par
+\f1\'b5\'b1\'c9\'f9\'c3\'f7\'c1\'cb\'d2\'bb\'b8\'f6\'b9\'b9\'d4\'ec\'ba\'af\'ca\'fd\'ca\'b1\'a3\'ac\'c4\'ac\'c8\'cf\'b9\'b9\'d4\'ec\'ba\'af\'ca\'fd\f0 will not be valid\f1\'a3\'ac\'d0\'e8\'c1\'ed\'cd\'e2\'c9\'f9\'c3\'f7\'d2\'bb\'b8\'f6\'c4\'ac\'c8\'cf\'b9\'b9\'d4\'ec\'ba\'af\'ca\'fd\f0\par
+\f1\'bd\'e2\'b9\'b9\'c6\'f7\'a3\'ba\f0 ~myclass()\{delete ?\}\par
+\par
+\f1\'b2\'d9\'d7\'f7\'b7\'fb\'d6\'d8\'d4\'d8\f0\par
+return_type operator sign (arglist) \{\}\par
+1\f1\'a3\'a9\'b3\'c9\'d4\'b1\'ba\'af\'ca\'fd\f0\par
+class Vector \{Public: int x, y; Vector operator +(const Vector& r) \{Vector sum; sum.x = x + r.x; sum.y = y + r.y; return sum;\}\}\par
+Vector a(1, 2);\par
+Vector b(3, 4);\par
+Vector c = a + b;   //equals to c = a.operator+(b)\par
+2\f1\'a3\'a9\'b7\'c7\'b3\'c9\'d4\'b1\'ba\'af\'ca\'fd\f0\par
+Vector operator +(cons Vector& a, const Vector& b)\par
+\{\par
+\tab Vector c;\par
+\tab c.x = a.x + b.x;\par
+\tab c.y = a.y + b.y;\}\par
+\tab\par
+\tab\par
+\f1\'b9\'d8\'bc\'fc\'d7\'d6\f0 this\f1\'a3\'ba\f0  a pointer to itself\par
+this represents a pointer to the object whose member function is being executed. \par
+It is used within a class's member function to refer to the object itself.\par
+\par
+\f1\'be\'b2\'cc\'ac\'b3\'c9\'d4\'b1\'a3\'ba\'b8\'c3\'c0\'e0\'b5\'c4\'cb\'f9\'d3\'d0\'b6\'d4\'cf\'f3\'b9\'b2\'cf\'ed\'be\'b2\'cc\'ac\'b3\'c9\'d4\'b1\f0\par
+class Dummy \{\par
+  public:\par
+    static int n;\par
+    Dummy () \{ n++; \};\par
+\};\par
+\par
+int Dummy::n=0;   \par
+//\f1\'c3\'bf\'b4\'b4\'bd\'a8\'d2\'bb\'b8\'f6\f0 Dummy\f1\'b5\'c4\'ca\'be\'c0\'fd\'a3\'ac\f0 n\f1\'bb\'e1\'bc\'d3\f0 1\par
+//\f1\'be\'b2\'cc\'ac\'b3\'c9\'d4\'b1\'d3\'a6\'b8\'c3\'d4\'da\'c0\'e0\'b6\'a8\'d2\'e5\'cd\'e2\'b3\'f5\'ca\'bc\'bb\'af\'a3\'ac\f0\par
+\par
+\par
+\f1\'b3\'a3\'c1\'bf\'b3\'c9\'d4\'b1\'b7\'bd\'b7\'a8\f0\par
+When an object is declared as const, it can only read its data member and access const function member.\par
+const Myclass myobject;\par
+int get() const \{\}; //const member function, cannot modify non-static data members nor call other non-const member functions. \par
+\par
+\par
+\f1\'c0\'e0\'c4\'a3\'b0\'e5\f0\par
+template <class T>\par
+class myclass \{\};\par
+myclass<int> myobject();\par
+myclass<float> myobject();\par
+\par
+\par
+\f1\'c0\'e0\'c4\'a3\'b0\'e5\'b5\'c4\'cc\'d8\'bb\'af\f0\par
+declare a class template specialization for a type\par
+template <class T> class myclass \{\};\par
+template <> class myclass <char> \{\};\par
+\par
+\f1\'d3\'d1\'ba\'af\'ca\'fd\'ba\'cd\'d3\'d1\'c0\'e0\f0\par
+friend return_type function_name(argslist) \{\};\par
+// \f1\'d4\'da\'c0\'e0\'b6\'a8\'d2\'e5\'d6\'d0\'c9\'f9\'c3\'f7\'d2\'bb\'b8\'f6\'d3\'d1\'ba\'af\'ca\'fd\'a3\'ac\'bc\'b4\'b8\'c3\'ba\'af\'ca\'fd\'bf\'c9\'d2\'d4\'b7\'c3\'ce\'ca\'b8\'c3\'c0\'e0\'b5\'c4\f0 private\f1\'ba\'cd\f0 protected\f1\'b3\'c9\'d4\'b1\'a3\'ac\'b5\'ab\'b8\'c3\'ba\'af\'ca\'fd\'b2\'bb\'ca\'c7\'b8\'c3\'c0\'e0\'b5\'c4\'b3\'c9\'d4\'b1\f0\par
+\par
+\par
+\f1\'d2\'fd\'d3\'c3\'c0\'e0\'b3\'c9\'d4\'b1\'a3\'ba\f0\par
+myclass myobject;\par
+myclass::side\par
+myobject.side\par
+\par
+\f1\'bc\'cc\'b3\'d0\'a3\'ba\f0\par
+class baseclass\{\};\par
+class derived class : public baseclass \{\}\par
+// \f1\'d7\'d3\'c0\'e0\'bf\'c9\'d2\'d4\'bc\'cc\'b3\'d0\'bb\'f9\'c0\'e0\'b5\'c4\f0 protected\f1\'ba\'cd\f0 public\f1\'b3\'c9\'d4\'b1\f0\par
+// \f1\'d2\'d4\f0 public\f1\'b7\'bd\'ca\'bd\'bc\'cc\'b3\'d0\'ca\'b1\'a3\'ac\'bb\'f9\'c0\'e0\'b3\'c9\'d4\'b1\'b5\'c4\f0 procted/public level will be same in \f1\'d7\'d3\'c0\'e0\f0\par
+// \f1\'d2\'d4\f0 protected/private\f1\'b7\'bd\'ca\'bd\'bc\'cc\'b3\'d0\'ca\'b1\'a3\'ac\'bb\'f9\'c0\'e0\'b3\'c9\'d4\'b1\'d4\'da\'d7\'d3\'c0\'e0\'d6\'d0\'b6\'bc\'b1\'e4\'b3\'c9\'c1\'cb\f0 protected/private\par
+\f1\'b4\'b4\'bd\'a8\'d2\'bb\'b8\'f6\'d7\'d3\'c0\'e0\'b5\'c4\'ca\'b5\'c0\'fd\'ca\'b1\'a3\'ac\'c8\'e7\'b9\'fb\'c3\'bb\'d3\'d0\'cc\'d8\'b1\'f0\'c9\'f9\'c3\'f7\'a3\'ac\'bb\'e1\'d7\'d4\'b6\'af\'ca\'b9\'d3\'c3\'bb\'f9\'c0\'e0\'b5\'c4\'c4\'ac\'c8\'cf\'b9\'b9\'d4\'ec\'c6\'f7\'b4\'b4\'bd\'a8\'d2\'bb\'b8\'f6\'bb\'f9\'c0\'e0\'ca\'b5\'c0\'fd\f0\par
+\f1\'b7\'f1\'d4\'f2\'b5\'c4\'bb\'b0\'ca\'b9\'d3\'c3\'c9\'f9\'c3\'f7\'b5\'c4\'b9\'b9\'d4\'ec\'c6\'f7\'b4\'b4\'bd\'a8\'bb\'f9\'c0\'e0\f0\par
+\f1\'bb\'f9\'c0\'e0\'ca\'b5\'c0\'fd\'d6\'d0\'b1\'bb\'b3\'f5\'ca\'bc\'bb\'af\'b5\'c4\f0 protected\f1\'ba\'cd\f0 public\f1\'b3\'c9\'d4\'b1\'b6\'bc\'cf\'e0\'b5\'b1\'d3\'da\'d4\'da\'d7\'d3\'c0\'e0\'d6\'d0\'d3\'d0\'cd\'ac\'d1\'f9\'c3\'fb\'b3\'c6\'b5\'c4\'cf\'e0\'cd\'ac\'b3\'c9\'d4\'b1\'a3\'ac\'d4\'da\'d7\'d3\'c0\'e0\'ba\'af\'ca\'fd\'d6\'d0\f0\par
+\f1\'bf\'c9\'d2\'d4\'d6\'b1\'bd\'d3\'ca\'b9\'d3\'c3\'a3\'ac\'b2\'bb\'d3\'c3\'d4\'d9\'b3\'f5\'ca\'bc\'bb\'af\'d7\'d3\'c0\'e0\'d6\'d0\'b5\'c4\'cf\'e0\'cd\'ac\'b3\'c9\'d4\'b1\f0\par
+class mother\{mother() \{cout<<"no";\} ,mother(int a)\{cout<<a;\}\}\par
+class daughter:public mother\{daughter(int a)\{cout<<a;\}\}\par
+class son:pulic mother\{son(int a):mother(a)\{cout<<a;\}\}\par
+\par
+\f1\'b6\'e0\'cc\'ac\'a3\'ba\'d0\'e9\'ba\'af\'ca\'fd\'ba\'cd\'b3\'e9\'cf\'f3\'c0\'e0\f0\par
+\f1\'d4\'da\'bb\'f9\'c0\'e0\'d6\'d0\'d3\'c3\'b9\'d8\'bc\'fc\'b4\'ca\f0 virtual\f1\'c9\'f9\'c3\'f7\'c4\'b3\'d2\'bb\'b8\'f6\'b7\'bd\'b7\'a8\'ca\'c7\'d0\'e9\'ba\'af\'ca\'fd\'a3\'ac\'b2\'a2\'d4\'da\'d7\'d3\'c0\'e0\'d6\'d0\'b8\'f8\'b3\'f6\'b8\'c3\'b7\'bd\'b7\'a8\'b5\'c4\'be\'df\'cc\'e5\'ca\'b5\'cf\'d6\'a3\'ac\'d4\'f2\'ca\'b9\'d3\'c3\'bb\'f9\'c0\'e0\'b5\'c4\'d6\'b8\'d5\'eb\'b5\'f7\'d3\'c3\'b8\'c3\'b7\'bd\'b7\'a8\'ca\'b1\'a3\'ac\'ca\'b5\'bc\'ca\'bb\'e1\'b5\'f7\'d3\'c3\'d7\'d3\'c0\'e0\'d6\'d0\'b8\'c3\'b7\'bd\'b7\'a8\'b5\'c4\'ca\'b5\'cf\'d6\f0\par
+\f1\'cd\'ac\'d2\'bb\'b8\'f6\'bd\'d3\'bf\'da\'a3\'ac\'b2\'bb\'cd\'ac\'ca\'b5\'cf\'d6\f0\par
+class base\{virtual int area()\{\}\};\par
+class derived1:public base\{int area()\{\}\};\par
+class derived2:public base\{int area()\{\}\};\par
+derived1 obj1;\par
+derived2 obj2;\par
+base *pt1 = &obj1;   // base *pt1 = new derived1; \f1\'b6\'a8\'d2\'e5\'bb\'f9\'c0\'e0\'b5\'c4\'d6\'b8\'d5\'eb\'d6\'b8\'cf\'f2\'d7\'d3\'c0\'e0\'b5\'c4\'ca\'b5\'c0\'fd\f0\par
+base *pt2 = &obj2;\par
+\f1\'d4\'f2\f0 pt1.area()\f1\'ba\'cd\f0 pt2.area()\f1\'bb\'e1\'d3\'d0\'b2\'bb\'cd\'ac\'b5\'c4\'ca\'b5\'cf\'d6\f0\par
+\f1\'c8\'e7\'b9\'fb\'bb\'f9\'c0\'e0\'d6\'d0\'c3\'bb\'d3\'d0\'b0\'d1\f0 area()\f1\'c9\'f9\'c3\'f7\'ce\'aa\'d0\'e9\'ba\'af\'ca\'fd\'a3\'ac\'d4\'f2\f0 pt1.area\f1\'ba\'cd\f0 pt2.area\f1\'b6\'bc\'bd\'ab\'ca\'b9\'d3\'c3\'bb\'f9\'c0\'e0\'d6\'d0\'b5\'c4\f0 area()\par
+\f1\'b3\'e9\'cf\'f3\'c0\'e0\'a3\'ba\'d6\'c1\'c9\'d9\'d3\'d0\'d2\'bb\'b8\'f6\'b4\'bf\'d0\'e9\'ba\'af\'ca\'fd\'b5\'c4\'c0\'e0\'b3\'c6\'ce\'aa\'b3\'e9\'cf\'f3\'c0\'e0\'a1\'a3\'b3\'e9\'cf\'f3\'c0\'e0\'b2\'bb\'c4\'dc\'b1\'bb\'ca\'b5\'c0\'fd\'bb\'af\'a3\'ac\'b5\'ab\'ca\'c7\'bf\'c9\'d2\'d4\'b6\'a8\'d2\'e5\'d6\'b8\'cf\'f2\'b8\'c3\'c0\'e0\'b5\'c4\'d6\'b8\'d5\'eb\'a1\'a3\f0\par
+virtual int area() = 0;  //\f1\'d3\'c3\f0 =0\f1\'b4\'fa\'cc\'e6\'ba\'af\'ca\'fd\'cc\'e5\f0\{body\}\f1\'a3\'ac\'b3\'c6\'ce\'aa\'b4\'bf\'d0\'e9\'ba\'af\'ca\'fd\f0\par
+\f1\'d0\'e9\'ba\'af\'ca\'fd\'ba\'cd\'b3\'e9\'cf\'f3\'c0\'e0\'ca\'b9\'b5\'c3\f0 C++\f1\'bf\'c9\'d2\'d4\'ca\'b5\'cf\'d6\'b6\'e0\'cc\'ac\f0\par
+\par
+################################################################### Array\par
+## Array\par
+library array\par
+#include<array>\par
+array<type,size> arr = \{\};\par
+arr\f1\'ca\'c7\'d2\'bb\'b8\'f6\f0 array\f1\'b6\'d4\'cf\'f3\'a3\'ac\'d3\'d0\'cf\'e0\'d3\'a6\'b5\'c4\'b7\'bd\'b7\'a8\'a3\'ac\'c8\'e7\f0 .size()\par
+\par
+2\\JS\par
+arr.length\par
+\par
+var x = 1, y = 2, z = 3;\par
+\par
+\par
+\par
+JavaScript \f1\'c0\'e0\f0\par
+JavaScript \f1\'ca\'c7\'c3\'e6\'cf\'f2\'b6\'d4\'cf\'f3\'b5\'c4\'d3\'ef\'d1\'d4\'a3\'ac\'b5\'ab\f0  JavaScript \f1\'b2\'bb\'ca\'b9\'d3\'c3\'c0\'e0\'a1\'a3\f0\par
+\f1\'d4\'da\f0  JavaScript \f1\'d6\'d0\'a3\'ac\'b2\'bb\'bb\'e1\'b4\'b4\'bd\'a8\'c0\'e0\'a3\'ac\'d2\'b2\'b2\'bb\'bb\'e1\'cd\'a8\'b9\'fd\'c0\'e0\'c0\'b4\'b4\'b4\'bd\'a8\'b6\'d4\'cf\'f3\'a3\'a8\'be\'cd\'cf\'f1\'d4\'da\'c6\'e4\'cb\'fb\'c3\'e6\'cf\'f2\'b6\'d4\'cf\'f3\'b5\'c4\'d3\'ef\'d1\'d4\'d6\'d0\'c4\'c7\'d1\'f9\'a3\'a9\'a1\'a3\f0\par
+JavaScript \f1\'bb\'f9\'d3\'da\f0  prototype\f1\'a3\'ac\'b6\'f8\'b2\'bb\'ca\'c7\'bb\'f9\'d3\'da\'c0\'e0\'b5\'c4\'a1\'a3\f0\par
+\par
+\tab function person(name, age, id)\{\par
+\tab\tab this.name = name;\par
+\tab\tab this.age = age;\par
+\tab\tab this.id = id;\par
+\tab\tab this.changeName = function (newName)\{\par
+\tab\tab\tab this.name = newName;\par
+\tab\tab\}\par
+\tab\}\par
+\tab\par
+\tab Jame = new person("Jame", 23, 1001);\par
+\tab Jame.changeName("Jame Jones");\par
+\tab\par
+\tab var person = function(name, age, id) \{\};\par
+\tab var Tom = new person("Tom", 25, 1001);\par
+\par
+\par
+\f1\'d4\'f5\'c3\'b4\'ca\'b5\'cf\'d6\f0 require other files\par
+is there map/reduce/filter/foreach in js\par
+\par
+\par
+3\\sicp\par
+1.1 The Elements of Programming\par
+\par
+* Learn the basic element of Scheme programming\par
+\par
+# primitive procedure\par
+\tab (operator operands)\par
+\tab e.g (+ 5 10)\par
+\tab\tab (* 2 3)\par
+\tab\tab (+ (- 2 3) (/ 6 4))\par
+\tab\tab\par
+# Naming\par
+\tab (define name value)\par
+\tab e.g (define pi 3.1415926)\par
+\tab\par
+# Define Procedure\par
+\tab (define (name formal_parameters)\par
+\tab\tab body\par
+\tab )\par
+\tab e.g (define (square x) \par
+\tab\tab\tab (* x x)\par
+\tab\tab )\par
+\tab\tab (square 5)\par
+\par
+# Conditional Expression and Predicates\par
+\tab (cond (p1 e1)\par
+\tab\tab   (p2 e2)\par
+\tab\tab   (else e3)\par
+\tab )\par
+\tab (if predicate consequent alternative)\par
+\par
+# Logic\par
+\tab (and e1 e2 e3)\par
+\tab (or e1 e2 e3)\par
+\tab (not e)\par
+\tab (= v1 v2)\par
+\tab (>= v1 v2)\par
+\tab\par
+\tab\par
+\par
+1.2 Procedure and the Processes They Generate\par
+\par
+* recursive process VS iterative process\par
+\par
+# Linear recursion and iteration\par
+# Tree recursion\par
+# iterative procedure: (define (i-procedure para-to-save-result other-para count))\par
+(define (f x)\par
+\tab (f-i x other-initial )        ;\f1\'bf\'aa\'ca\'bc\'b5\'fc\'b4\'fa\'b9\'fd\'b3\'cc\f0\par
+)\par
+(define (f-i result other-para count)\par
+\tab (if (= count limit)\par
+\tab\tab result\par
+\tab\tab (f-i new_result other-para new-count)\par
+\tab )\par
+)\par
+\par
+1.3 Formulating Abstractions with Higher-Order Procedures\par
+\par
+* \f1\'d4\'da\f0 scheme\f1\'d6\'d0\'a3\'ac\f0 procedure\f1\'ba\'cd\f0 data\f1\'be\'df\'d3\'d0\'cd\'ac\'b5\'c8\'b5\'c4\'b5\'d8\'ce\'bb\'a3\'ac\'bf\'c9\'d2\'d4\'b1\'bb\'b1\'e4\'c1\'bf\'c3\'fc\'c3\'fb\'a3\'ac\'ca\'d3\'ce\'aa\'b2\'ce\'ca\'fd\'b4\'ab\'b5\'dd\'b8\'f8\'b9\'fd\'b3\'cc\'a3\'ac\'d7\'f7\'ce\'aa\'b9\'fd\'b3\'cc\'b5\'c4\'b7\'b5\'bb\'d8\'d6\'b5\'a3\'ac\'b0\'fc\'c0\'a8\'d4\'da\'ca\'fd\'be\'dd\'bd\'e1\'b9\'b9\'d6\'d0\f0\par
+\par
+# express the concept; build abstraction of higher level;\par
+# procedure as argument: \f1\'d2\'aa\'b0\'d1\'ca\'fd\'c1\'d0\'d7\'f7\'ce\'aa\f0 procedure\f1\'b5\'c4\f0 argument\f1\'b5\'c4\'bb\'b0\'a3\'ac\'bf\'c9\'d2\'d4\'b0\'d1\'ca\'fd\'c1\'d0\'d3\'c3\f0 procedure\f1\'b1\'ed\'ca\'be\'a3\'ac\'bd\'ab\'b4\'cb\f0 procedure\f1\'d7\'f7\'ce\'aa\f0 argument\f1\'a3\'bb\f0  \f1\'ca\'fd\'c1\'d0\f0  (lamda (n) (body)) (define (f n) body)\par
+# lambda to create anonymous procedure \par
+\tab ((lambda (formal-parameters) (body)) arguments)    (lambda () )\f1\'cf\'e0\'b5\'b1\'d3\'da\'d2\'bb\'b8\'f6\'ba\'af\'ca\'fd\'c3\'fb\'ca\'b9\'d3\'c3\f0 ,\f1\'c8\'e7\'b9\'fb\'b9\'fd\'b3\'cc\'b7\'b5\'bb\'d8\'d6\'b5\'ca\'c7\'d2\'bb\'b8\'f6\'b9\'fd\'b3\'cc\'d4\'f2\'bf\'c9\'d3\'c3\f0 lambda\f1\'ca\'b5\'cf\'d6\f0\par
+# use let to creat local variables. The same effect can be achieved by using lambda or internal define. But we prefer to use internal define for internal procedure.\par
+\tab (let ((var1 exp1) (var2 exp2) (var3 exp3)) body)\par
+\tab so that var1 var2 var3 has value exp1 exp2 exp3 only in the body\par
+# procedure as returned value\par
+\tab ((procedure argument1) argument2)\par
+\par
+\tab\par
+\tab\par
+\tab\par
+Chapter2 Building Abstractions with Data\par
+\par
+* build procedure suitable for 1)one kind of data but different representations\par
+\tab\tab\tab\tab\tab\tab\tab\tab 2)different kinds of data\par
+\par
+2.1 Introduction to Data Abstractions\par
+\par
+# Programs that use the data don't need to know underlying representation of data. \par
+\tab They only need to know the constructors and selectors of data so that they can use data.\par
+# wishful thinking\par
+# data abstraction barrier\f1\'a3\'ba\f0 On different abstraction level, procedure will only use the procedure which is next to its abstraction level.\par
+\par
+2.2 Hierarchical Data and the closure Property\par
+\par
+# list operation: (list-ref list n)  (length list)  (append list1 list2)  (map proc list)\par
+# map:\f1\'b0\'d1\'b6\'e0\'d6\'d6\'b6\'d4\f0 list\f1\'b5\'c4\'b2\'d9\'d7\'f7\'cd\'b3\'d2\'bb\'d4\'da\'d2\'bb\'b8\'f6\f0 procedure\f1\'cf\'c2\'a3\'ac\'ca\'c7\'d2\'bb\'d6\'d6\'b4\'d3\'d2\'bb\'b8\'f6\f0 list\f1\'b1\'e4\'bb\'af\'b5\'bd\'c1\'ed\'d2\'bb\'b8\'f6\f0 list\f1\'b5\'c4\'b3\'e9\'cf\'f3\f0\par
+# \f1\'c0\'e0\'cb\'c6\f0 map\f1\'b5\'c4\'bb\'b9\'d3\'d0\f0 accumulate\par
+# tree\f1\'a3\'ba\'d3\'c3\'b5\'dd\'b9\'e9\'bd\'e2\'be\'f6\'b9\'d8\'d3\'da\'ca\'f7\'bd\'e1\'b9\'b9\'b5\'c4\'ce\'ca\'cc\'e2\f0\par
+\par
+2.3 Symbolic Data\par
+\par
+#(eq? item1 item2) (memq item list)\par
+\par
+2.4 Multiple Representations for Abstract Data\par
+\par
+#generic procedures can operate on data with mutiple representations.\par
+#two way for generic procedure: tagged data; data-directed programming\par
+\tab\f1\'c1\'bd\'d5\'df\'b6\'bc\f0 add tag to the data\f1\'a1\'a3\'b5\'ab\'ca\'c7\'d4\'cb\'d3\'c3\f0 tag\f1\'b5\'c4\'b7\'bd\'ca\'bd\'b2\'bb\'d2\'bb\'d1\'f9\'a1\'a3\f0 tagged\f1\'b5\'c4\f0 data\f1\'b0\'d1\f0 data\f1\'b5\'b1\'d7\'f6\f0\par
+\par
+2.5 Systems with Generic Operations\par
+\par
+#Procedures can operate on not only different representation of one kind of data, but also different kinds of data\par
+\par
+\par
+Chapter 2\par
+# map\\reduce\\for-each\\filter: high order of abstraction\par
+# operation over trees: abstract idea,express the idea of procedure, e.g count-leaves reverse\par
+\tab (cond ((null? tree) '())\par
+\tab\tab ((not (pair? tree)) return)\par
+\tab\tab (else (proc (car tree)) (proc (cdr tree))))\par
+# map over trees: (map proc tree)  (define (proc subtree) (if (pair? subtree) (map proc subtree) ()))\par
+# high order abstraction: don't think about the detail of how it's be done, but think about the general idea.\par
+# (accumulate op initial list) op\f1\'bd\'d3\'ca\'dc\'c1\'bd\'b8\'f6\'b2\'ce\'ca\'fd\'a3\'ac\'a3\'a8\f0 op (car list) (accumulate op initial (cdr list))\f1\'a3\'a9\f0\par
+# (map proc list) map\f1\'bd\'d3\'ca\'dc\'d2\'bb\'b8\'f6\'b2\'ce\'ca\'fd\f0\par
+\par
+\par
+\par
+Chapter3 Modularity,Objects,and State\par
+\par
+Chap1&2: Building abstraction with procedures and data\par
+\par
+Organize systems with modularity: objects approach(enviroment model) stream approach(delayed evaluation)\par
+\par
+3.1 Assignment and Local State\par
+\par
+#(set! name new-value)\par
+\par
+#(begin exp1 exp2....expk)  to be evaluated in sequence and value of expk to be returned as the value of the entire begin form\par
+\par
+#(let ((var1 val1) (var2 val2) ()) (lambda () body))   let\f1\'d3\'eb\f0 lambda\f1\'ba\'af\'ca\'fd\'b5\'c4\'b0\'fc\'ba\'ac\'b9\'d8\'cf\'b5\f0\par
+\par
+\f1\'c3\'bf\'bd\'a8\'c1\'a2\'d2\'bb\'b8\'f6\'b6\'d4\'cf\'f3\'a3\'ac\'cf\'a3\'cd\'fb\f0 track\f1\'c4\'b3\'d0\'a9\'b1\'e4\'c1\'bf\'b5\'c4\'b1\'e4\'bb\'af\'a3\'ac\'d4\'f2\'bf\'c9\'d2\'d4\'c9\'e8\'b1\'e4\'c1\'bf\'ce\'aa\'b6\'d4\'cf\'f3\'b5\'c4\'b2\'ce\'ca\'fd\f0 (define objects var)\f1\'bb\'f2\'d5\'df\'c9\'e8\'d6\'c3\'c6\'e4\'ce\'aa\'be\'d6\'b2\'bf\'b1\'e4\'c1\'bf\f0 (define objects (let (var inital-val) body))\par
+\par
+\par
+3.2 The Environment Model of Evaluation\par
+\par
+#P227: how a procedure is created and applied in enviroment model\par
+# procedure's enclosing env is where it is defined, not where it is called\par
+# procedure's name will be bound to where it is defined,the internal of some other procedures or the global env\par
+# internal definition will bound to the procedure objects\par
+\par
+\f1\'b6\'d4\'d3\'da\'ce\'bb\'d3\'da\'bb\'b7\'be\'b3\f0 env\f1\'d6\'d0\'b5\'c4\'be\'d6\'b2\'bf\'b1\'e4\'c1\'bf\f0 v\f1\'a3\'ac\'d6\'bb\'d3\'d0\f0 env\f1\'bc\'b0\'d2\'d4\f0 env\f1\'ce\'aa\f0 enclosing env\f1\'d6\'d0\'b5\'c4\f0 procedure\f1\'bf\'c9\'d2\'d4\'b2\'d9\'d7\'f7\'cb\'fc\'a3\'ac\'cd\'e2\'b2\'bf\'bb\'b7\'be\'b3\'d0\'e8\'d2\'aa\'cd\'a8\'b9\'fd\'b7\'bd\'b7\'a8\'b2\'d9\'d7\'f7\'cb\'fc\'a3\'ac\'b6\'f8\'b2\'bb\'c4\'dc\'d6\'b1\'bd\'d3\'b6\'d4\f0 v\f1\'bd\'f8\'d0\'d0\'b2\'d9\'d7\'f7\f0\par
+\par
+3.3 Modeling with Mutable Data\par
+\par
+#(set-car! list x)  (set-cdr! list x)\par
+#set-car! replace the car pointer by a pointer to the second argument of set-car!\par
+#sharing: different variables point to the same objects. Notice if change anyone of them will infuluence the others.Notice unexpected change\par
+#represent queue using mutable pair\par
+\par
+3.4 Concurrency\f1\'a3\'ba\f0 Time Is of the Essence\par
+\par
+# Computational objects with local states benefit modularity,but come at a price: the loss of referential transparency, giving rise to questions about sameness and change, and the need of enviroment model.\par
+# By not allowing interleaved execuation, process could run sequentially in some order and might get correct answer.\par
+# Mechanisms for controlling concurrency: serializer\par
+# In each serialized set only one procedure could run at a time, others would be forced to wait.\par
+\par
+\par
+3.5 Streams\par
+\par
+# stream as delayed list: achieve both efficiency and expression elegance(stream-map etc) by delayed evaluation\par
+# infinite streams\par
+\par
+\f1\'d4\'da\f0 scheme\f1\'c0\'ef\'c3\'e6\f0 define-syntax\f1\'bf\'c9\'d2\'d4\'d3\'c3\'c0\'b4\'b6\'a8\'d2\'e5\'d2\'bb\'b8\'f6\f0  normal order\f1\'b5\'c4\'ba\'af\'ca\'fd\f0\par
+Normal Order and Applicative Order \par
+In section [*], where we began our discussion of models of evaluation, we noted that Scheme is an  applicative-order language, namely, that all the arguments to Scheme procedures are evaluated when the procedure is applied. In contrast, normal-order languages delay evaluation of procedure arguments until the actual argument values are needed. Delaying evaluation of procedure arguments until the last possible moment (e.g., until they are required by a primitive operation) is called lazy evaluation. \par
+\par
+1\f1\'a1\'a2\f0 stream: substitute local-variables&assignment to model the changing real world, be able to avoid the drawbacks of assignment.\par
+2\f1\'a1\'a2\f0 map/reduce/filter could capture a wide variety of operations in a manner that is both succinct and elegant.\par
+3\f1\'a1\'a2\f0 the efficiency of stream(normal-order, delay evaluation): canculate when you need, instead of canculate when you build./ evaluation at selection time, instead of evaluation at construction time\par
+4\f1\'a1\'a2\f0 realize delay evaluation : delay / force\par
+5\f1\'a1\'a2\f0 infinite stream\par
+6\f1\'a1\'a2\f0 define streams implicitly: recursive process, the definition includes itself. add-stream and scale-stream will help this definition.\par
+7\f1\'a1\'a2\f0 formulating iterations as stream processes: (define iter-values (stream-cons inital-val (stream-map f iter-values)))\f1\'b8\'f9\'be\'dd\f0 f\f1\'b5\'fc\'b4\'fa\'b5\'c3\'b5\'bd\'b5\'c4\f0\par
+8\f1\'a1\'a2\f0 think in a more recursive way: e.g (pairs s t)\par
+\par
+
+\pard\qj\f1\fs21\'c9\'e8\'bc\'c6\'c1\'bc\'ba\'c3\'b5\'c4\'bc\'c6\'cb\'e3\'cf\'b5\'cd\'b3\'be\'cd\'cf\'f1\'c9\'e8\'bc\'c6\'c1\'bc\'ba\'c3\'b5\'c4\'c6\'fb\'b3\'b5\'a3\'ac\'be\'df\'d3\'d0\'c4\'b3\'d6\'d6\'c4\'a3\'bf\'e9\'bb\'af\'b5\'c4\'c9\'e8\'bc\'c6\'a3\'ac\'c6\'e4\'d6\'d0\'b5\'c4\'b8\'f7\'b8\'f6\'b2\'bf\'b7\'d6\'b6\'bc\'bf\'c9\'d2\'d4\'b6\'c0\'c1\'a2\'b5\'d8\'b9\'b9\'d4\'ec\'a1\'a2\'cc\'e6\'bb\'bb\'a1\'a2\'c5\'c5\'b3\'fd\'b4\'ed\'ce\'f3\f0\par
+\par
+\f1\'a3\'bf\'b1\'e0\'d2\'eb\'c6\'f7\f0  \f1\'bd\'e2\'ca\'cd\'c6\'f7\f0\par
+\par
+LISP\f1\'a3\'ba\'bd\'ab\'b9\'fd\'b3\'cc\'d7\'f7\'ce\'aa\'ca\'fd\'be\'dd\'c0\'b4\'b1\'ed\'ca\'be\'ba\'cd\'b2\'d9\'d7\'f7\f0\par
+\par
+\f1\'c8\'ce\'ba\'ce\'c7\'bf\'d3\'d0\'c1\'a6\'b5\'c4\'b3\'cc\'d0\'f2\'c9\'e8\'bc\'c6\'d3\'ef\'d1\'d4\'b6\'bc\'b1\'d8\'d0\'eb\'c4\'dc\'b1\'ed\'ca\'f6\'bb\'f9\'b1\'be\'b5\'c4\'ca\'fd\'be\'dd\'ba\'cd\'bb\'f9\'b1\'be\'b5\'c4\'b9\'fd\'b3\'cc\'a3\'ac\'bb\'b9\'d0\'e8\'d2\'aa\'cc\'e1\'b9\'a9\'b6\'d4\'b9\'fd\'b3\'cc\'ba\'cd\'ca\'fd\'be\'dd\'bd\'f8\'d0\'d0\'d7\'e9\'ba\'cf\'ba\'cd\'b3\'e9\'cf\'f3\'b5\'c4\'b7\'bd\'b7\'a8\'a1\'a3\f0\par
+\par
+\f1\'cd\'a8\'b9\'fd\'c3\'fb\'d7\'d6\'c8\'a5\'ca\'b9\'d3\'c3\'bc\'c6\'cb\'e3\'b6\'d4\'cf\'f3\'a3\'ac\'bd\'ab\'c3\'fb\'d7\'d6\'b1\'ea\'ca\'b6\'b7\'fb\'b3\'c6\'ce\'aa\'b1\'e4\'c1\'bf\'a3\'ac\'cb\'fc\'b5\'c4\'d6\'b5\'be\'cd\'ca\'c7\'cb\'fc\'cb\'f9\'b6\'d4\'d3\'a6\'b5\'c4\'c4\'c7\'b8\'f6\'b6\'d4\'cf\'f3\f0\par
+\par
+\f1\'b5\'dd\'b9\'e9\'b9\'fd\'b3\'cc\'a3\'ba\'d4\'da\'ba\'af\'ca\'fd\'b6\'a8\'d2\'e5\'d6\'d0\'b5\'f7\'d3\'c3\'ba\'af\'ca\'fd\'b1\'be\'c9\'ed\'a1\'a3\'b5\'dd\'b9\'e9\'b9\'fd\'b3\'cc\'ba\'cd\'b5\'dd\'b9\'e9\'ca\'b5\'cf\'d6\'ca\'c7\'b2\'bb\'cd\'ac\'b5\'c4\'a3\'ac\'b5\'dd\'b9\'e9\'b9\'fd\'b3\'cc\'d5\'eb\'b6\'d4\'d3\'ef\'b7\'a8\'c0\'b4\'cb\'b5\'a3\'ac\'b5\'dd\'b9\'e9\'ca\'b5\'cf\'d6\'ca\'c7\'b3\'cc\'d0\'f2\'ca\'b5\'bc\'ca\'d4\'cb\'d0\'d0\'b9\'fd\'b3\'cc\'d6\'d0\'cb\'f9\'d0\'e8\'c4\'da\'b4\'e6\'bf\'d5\'bc\'e4\'cb\'e6\'b9\'fd\'b3\'cc\'b5\'f7\'d3\'c3\'b4\'ce\'ca\'fd\'d4\'f6\'b3\'a4\'a1\'a3\'b5\'dd\'b9\'e9\'b9\'fd\'b3\'cc\'bf\'c9\'d2\'d4\'ca\'c7\'b5\'dd\'b9\'e9\'ca\'b5\'cf\'d6\'b5\'c4\'a3\'ac\'d2\'b2\'bf\'c9\'d2\'d4\'ca\'c7\'b5\'fc\'b4\'fa\'ca\'b5\'cf\'d6\'b5\'c4\'a1\'a3\'b5\'fc\'b4\'fa\'ca\'b5\'cf\'d6\'ca\'c7\'d4\'da\'b3\'cc\'d0\'f2\'d4\'cb\'d0\'d0\'b9\'fd\'b3\'cc\'d6\'d0\'d6\'bb\'d0\'e8\'d2\'aa\'b9\'cc\'b6\'a8\'ca\'fd\'c4\'bf\'b5\'c4\'d7\'b4\'cc\'ac\'b1\'e4\'c1\'bf\'c0\'b4\'ce\'ac\'b3\'d6\'a1\'a3\f0\par
+\f1\'b4\'f3\'b2\'bf\'b7\'d6\'d3\'ef\'d1\'d4\'b5\'c4\'b5\'dd\'b9\'e9\'b9\'fd\'b3\'cc\'b6\'bc\'c4\'ac\'c8\'cf\'ce\'aa\'b5\'dd\'b9\'e9\'ca\'b5\'cf\'d6\'a3\'ac\'cb\'f9\'d2\'d4\'d0\'e8\'d2\'aa\'d7\'a8\'c3\'c5\'b5\'c4\ldblquote\'d1\'ad\'bb\'b7\ldblquote\'c0\'b4\'d6\'b4\'d0\'d0\'b5\'fc\'b4\'fa\'ca\'b5\'cf\'d6\'a1\'a3\'b6\'f8\'d4\'da\f0 LISP\f1\'d6\'d0\'a3\'ac\'b5\'dd\'b9\'e9\'ba\'cd\'b5\'fc\'b4\'fa\'c1\'bd\'d6\'d6\'ca\'b5\'cf\'d6\'b6\'bc\'bf\'c9\'d2\'d4\'d4\'da\'b5\'dd\'b9\'e9\'b9\'fd\'b3\'cc\'d6\'d0\'ca\'b5\'cf\'d6\'a1\'a3\f0\par
+\par
+\par
+1.1 \f1\'b9\'b9\'d4\'ec\'b9\'fd\'b3\'cc\'b3\'e9\'cf\'f3\'a3\'ba\'b9\'b9\'d4\'ec\'ba\'af\'ca\'fd\'b5\'c4\'bb\'f9\'b1\'be\'d4\'aa\'cb\'d8\'a3\'ac\'ba\'da\'cf\'e4\'d7\'d3\'b5\'c4\'b8\'c5\'c4\'ee\'d2\'d4\'bc\'b0\'c4\'a3\'bf\'e9\'bb\'af\'b5\'c4\'cb\'bc\'cf\'eb\f0\par
+1.2 \f1\'b9\'fd\'b3\'cc\'bc\'b0\'cb\'f9\'b2\'fa\'c9\'fa\'b5\'c4\'d4\'cb\'cb\'e3\'a3\'ba\'b5\'dd\'b9\'e9\'b9\'fd\'b3\'cc\'bf\'c9\'d2\'d4\'b2\'fa\'c9\'fa\'b5\'fc\'b4\'fa\'bc\'c6\'cb\'e3\'bb\'f2\'b5\'dd\'b9\'e9\'bc\'c6\'cb\'e3\'a3\'ac\'b2\'bb\'cd\'ac\'bc\'c6\'cb\'e3\'b9\'fd\'b3\'cc\'b5\'c4\'b4\'fa\'bc\'db\'b2\'bb\'cd\'ac\f0\par
+1.3 \f1\'b8\'fc\'b8\'df\'bd\'d7\'b5\'c4\'b3\'e9\'cf\'f3\'a3\'ba\'bd\'ab\'d2\'bb\'b8\'f6\'b3\'cc\'d0\'f2\'d7\'f7\'ce\'aa\'c1\'ed\'d2\'bb\'b8\'f6\'b3\'cc\'d0\'f2\'b5\'c4\'b2\'ce\'ca\'fd\'a3\'ac\'b6\'f8\'b2\'bb\'d2\'c0\'c0\'b5\'d3\'da\'be\'df\'cc\'e5\'b5\'c4\'ba\'af\'ca\'fd\f0\par
+\par
+\f1\'b3\'e9\'cf\'f3\'a3\'ba\'b6\'e0\'bc\'b6\'b3\'e9\'cf\'f3\'a3\'ac\'b2\'bb\'b6\'cf\'cc\'e1\'c1\'b6\f0\par
+We should be alert to opportunities to identify the underlying abstractions in our programs and to build upon them and generalize them to create more powerful abstractions\par
+Choose the level of abstraction appropriate to your task\par
+\par
+\par
+\par
+****************************\par
+GNU\f1\'a3\'ba\f0 GNU is Not Unix\f1\'a3\'ac\'b4\'b4\'bd\'a8\'d2\'bb\'cc\'d7\'cd\'ea\'c8\'ab\'d7\'d4\'d3\'c9\'b5\'c4\'b2\'d9\'d7\'f7\'cf\'b5\'cd\'b3\f0\par
+Scheme\f1\'d3\'ef\'d1\'d4\'b5\'c4\'ca\'b5\'cf\'d6\'a3\'a8\'bd\'e2\'ca\'cd\'c6\'f7\'a3\'a9\'a3\'ba\f0 Guile\f1\'a3\'a8\f0 GNU\f1\'b5\'c4\'c0\'a9\'d5\'b9\'d3\'ef\'d1\'d4\'bf\'e2\'a3\'a9\f0  DrScheme Racket\par
+****************************\par
+\par
+Iterative process: (define (iterative-process para-to-save-result other-para count))\par
+\par
+(define (f x)\par
+\tab (f-i x other-initial )        ;\f1\'bf\'aa\'ca\'bc\'b5\'fc\'b4\'fa\'b9\'fd\'b3\'cc\f0\par
+)\par
+\par
+\par
+(define (f-i result other-para count)\par
+\tab (if (= count 0)\par
+\tab\tab result\par
+\tab\tab calculate;save result;next loop\par
+\tab )\par
+
+\pard\qj\tx750 )\tab\tab ; \f1\'d5\'e2\'b8\'f6\'d1\'ad\'bb\'b7\'b7\'b5\'bb\'d8\'b5\'c4\'ca\'c7\'d2\'bb\'b8\'f6\f0 result\par
+\par
+
+\pard\qj scheme\f1\'d3\'ef\'be\'e4\'b5\'c4\'c2\'df\'bc\'ad\'a3\'ba\f0\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent360{\pntxtb\'B7}}\nowidctlpar\fi-360\li1020\sb100\sa100\sl390\slmult0\tx720\cf1\highlight2\f2\'c8\'e7\'b9\'fb\'c4\'c7\'ca\'c7\'d2\'bb\'b8\'f6\'ca\'fd, \'d4\'f2\'b7\'b5\'bb\'d8\'d5\'e2\'b8\'f6\'ca\'fd\par
+{\pntext\f4\'B7\tab}\'c8\'e7\'b9\'fb\'c4\'c7\'ca\'c7\'d2\'bb\'b8\'f6\'b7\'fb\'ba\'c5, \'d4\'f2\'b7\'b5\'bb\'d8\'b8\'c3\'b7\'fb\'ba\'c5\'cb\'f9\'b0\'f3\'b6\'a8\'b5\'c4\'b6\'d4\'cf\'f3. \par
+{\pntext\f4\'B7\tab}\'c8\'e7\'b9\'fb\'c4\'c7\'ca\'c7\'d2\'bb\'b8\'f6\'c1\'d0\'b1\'ed, \'b0\'d1\'c1\'d0\'b1\'ed\'b5\'c4\'b5\'da\'d2\'bb\'cf\'ee\'d7\'f7\'ce\'aa\'b7\'bd\'b7\'a8, \'c6\'e4\'cb\'fb\'d7\'f7\'ce\'aa\'b2\'ce\'ca\'fd, \'d6\'b4\'d0\'d0\'d6\'ae.\par
+
+\pard\qj\cf0\highlight0\f0\par
+
+\pard\sa200\sl276\slmult1\fs22\par
+4\f2\lang2052\\\f3\lang1033 c#\par
+#region #endregion\par
+namespace\par
+\f2\lang2052 1\\\'c0\'a9\'d5\'b9\'b5\'c4\'b1\'e4\'c1\'bf\'c0\'e0\'d0\'cd\'a3\'baenum struct [] string\f3\lang1033\par
+\f2\lang2052\'ca\'fd\'d7\'e9\'a3\'ba\par
+\'d4\'da\'b7\'c3\'ce\'ca\'c7\'b0\'b3\'f5\'ca\'bc\'bb\'af\'a3\'ac\'b3\'f5\'ca\'bc\'bb\'af\'b5\'c4\'b7\'bd\'b7\'a8\par
+int[] myArray = \{\};\par
+int[] myArray = new int[size]\{\};\par
+foreach(int n in myArray)\par
+\{{{\field{\*\fldinst{HYPERLINK "\\\\\\\\can"}}{\fldrslt{\\\\can\ul0\cf0}}}}\f2\fs22  only use n, cannot change n\}\par
+\'b6\'e0\'ce\'ac\'ca\'fd\'d7\'e9(\'be\'d8\'d5\'f3)\par
+int[,] myMatrice = new int[3,4];\par
+\'d3\'c3myMatrice[i,j]\'c0\'b4\'b7\'c3\'ce\'ca\'d4\'aa\'cb\'d8\par
+\'ca\'fd\'d7\'e9\'b5\'c4\'ca\'fd\'d7\'e9\par
+int[][] jaggedArray = new int[2][];\par
+jaggedArray[0] = new int[3];\par
+jaggedArray[1] = new int[4]\par
+\par
+string myString\par
+foeach(char ch in myString)\par
+char[] string = myString.ToCharArray();\par
+myString.\par
+\par
+2\\\'ba\'af\'ca\'fd\'a3\'ba\par
+1.\'ba\'af\'ca\'fd\'b5\'c4\'c3\'fb\'b3\'c6\'ba\'cd\'b2\'ce\'ca\'fd\'c1\'d0\'b1\'ed\'ca\'c7\'cb\'fc\'b5\'c4\'c7\'a9\'c3\'fb\'a3\'a8\'b7\'b5\'bb\'d8\'c0\'e0\'d0\'cd\'b2\'bb\'ca\'c7\'a3\'a9\'a3\'ac\'bd\'e1\'b9\'b9\'b5\'c4\'b3\'c9\'d4\'b1\'bf\'c9\'d2\'d4\'ca\'c7\'ba\'af\'ca\'fd\par
+2.\'b2\'ce\'ca\'fd\'ca\'fd\'d7\'e9\'a3\'ba static void MyFunction(p1 v1, ... , params type[] name)\par
+\'b2\'ce\'ca\'fd\'ca\'fd\'d7\'e9\'ca\'c7\'c1\'d0\'b1\'ed\'b5\'c4\'d7\'ee\'ba\'f3\'d2\'bb\'cf\'ee\'a3\'ac\'b2\'ce\'ca\'fd\'b8\'f6\'ca\'fd\'bf\'c9\'d2\'d4\'b2\'bb\'b6\'a8\'a3\'ac\'b5\'ab\'b1\'d8\'d0\'eb\'ca\'c7\'cd\'ac\'d2\'bbtype\par
+3.ref\'a3\'ba static void MyFunction(ref int n)\{\}\par
+\'b5\'f7\'d3\'c3\'ca\'b1\'a3\'ac\'d3\'a6\'d4\'d9\'b4\'ce\'d6\'b8\'b6\'a8ref\par
+int number = 5;\par
+MyFunction(ref number);\par
+\'d7\'a2\'d2\'e2\'a3\'ac\'b2\'bb\'c4\'dc\'b0\'d1constan\'d6\'b5\'b4\'ab\'b8\'f8\'d2\'fd\'d3\'c3\'b1\'e4\'c1\'bf\'a3\'ac\'b2\'bb\'c4\'dc\'b0\'d1\'ce\'b4\'be\'ad\'b3\'f5\'ca\'bc\'bb\'af\'b5\'c4\'d6\'b5\'b4\'ab\'b8\'f8\'d2\'fd\'d3\'c3\'b1\'e4\'c1\'bf\'a1\'a3\par
+4.\'ca\'e4\'b3\'f6\'b2\'ce\'ca\'fd\par
+static void MyFunction(int[] array, out int index)\{\}\par
+\'d4\'da\'b5\'f7\'d3\'c3\'ca\'b1\'a3\'acout\'b2\'ce\'ca\'fd\'bb\'e1\'b1\'bb\'bf\'b4\'d7\'f6\'bb\'b9\'ce\'b4\'b8\'b3\'d6\'b5\'b5\'c4\'a3\'ac\'ba\'af\'ca\'fd\'d6\'d0\'b6\'d4index\'b5\'c4\'b8\'c4\'b1\'e4\'bd\'ab\'b4\'ab\'b8\'f8\'cd\'e2\'c3\'e6\'b5\'c4index\par
+5.\'ce\'af\'cd\'d0: \'c9\'f9\'c3\'f7\'d2\'bb\'b8\'f6\'ce\'af\'cd\'d0\'c0\'e0\'d0\'cd\'a3\'a8\'b7\'b5\'bb\'d8\'c0\'e0\'d0\'cd\'a3\'ac\'b2\'ce\'ca\'fd\'c0\'e0\'d0\'cd\'a3\'ac\'ce\'de\'bf\'c9\'b7\'c3\'ce\'ca\'d0\'d4\'d0\'de\'ca\'ce\'b7\'fb\'a3\'a9\'a3\'ac\'b6\'a8\'d2\'e5\'b8\'c3\'c0\'e0\'d0\'cd\'b5\'c4\'b1\'e4\'c1\'bf\'a3\'ac\'b1\'e4\'c1\'bf\'bf\'c9\'b3\'f5\'ca\'bc\'bb\'af\'ce\'aa\'ba\'cd\'b8\'c3\'ce\'af\'cd\'d0\'c0\'e0\'d0\'cd\'be\'df\'d3\'d0\'cf\'e0\'cd\'ac\'b7\'b5\'bb\'d8\'c0\'e0\'d0\'cd\'ba\'cd\'b2\'ce\'ca\'fd\'c0\'e0\'d0\'cd\'b5\'c4\'ba\'af\'ca\'fd\'d2\'fd\'d3\'c3\'a3\'ac\'c8\'bb\'ba\'f3\'be\'cd\'bf\'c9\'d2\'d4\'d3\'c3\'ce\'af\'cd\'d0\'b1\'e4\'c1\'bf\'b5\'f7\'d3\'c3\'d5\'e2\'b8\'f6\'ba\'af\'ca\'fd;\'bb\'b9\'bf\'c9\'d2\'d4\'bd\'ab\'ce\'af\'cd\'d0\'b1\'e4\'c1\'bf\'d7\'f7\'ce\'aa\'b2\'ce\'ca\'fd\'b4\'ab\'b5\'dd\'b8\'f8\'d2\'bb\'b8\'f6\'ba\'af\'ca\'fd\par
+delegate int MyDelegate(double d, int i);\par
+static int f1(double,int)\{\}\par
+MyDelegate mydelegate = new MyDelegate(f1);\par
+mydelegate(double,int)\par
+\par
+3\\\'b5\'f7\'ca\'d4\par
+Debug.WriteLine(String.Format("...\{0\}...", val1))\'d4\'daview-->output\'b4\'b0\'bf\'da\'d6\'d0\'b2\'e9\'bf\'b4\'c4\'da\'c8\'dd\par
+\'c9\'e8\'d6\'c3\'b8\'fa\'d7\'d9\'b5\'e3TracePoint\par
+\'c9\'e8\'d6\'c3\'b6\'cf\'b5\'e7BreakPoint\'a3\'ac\'bc\'b0\'b6\'cf\'b5\'e3\'cc\'f5\'bc\'fe\par
+Debug.Assert(condition,"\'ca\'e4\'b3\'f6\'b5\'bd\'b5\'af\'b3\'f6\'b5\'c4\'b6\'d4\'bb\'b0\'bf\'f2\'c4\'da\'c8\'ddif condition is not true","\'ca\'e4\'b3\'f6\'b5\'bdoutput\'b4\'b0\'bf\'da\'d6\'d0\'b5\'c4\'c4\'da\'c8\'dd")\par
+\'bc\'e0\'ca\'d3\'b1\'e4\'c1\'bf\'b5\'c4\'c4\'da\'c8\'dd\'a3\'bawatch\'b4\'b0\'bf\'da\'a3\'a8\'bf\'c9\'d2\'d4\'cd\'a8\'b9\'fd\'cd\'cf\'b6\'af\'b1\'e4\'c1\'bf\'b5\'c4\'b7\'bd\'ca\'bd\'cc\'ed\'bc\'d3\'b1\'e4\'c1\'bf\'a3\'a9\par
+Immediate\'b4\'b0\'bf\'da\'a3\'ba\'d6\'b4\'d0\'d0\'b4\'fa\'c2\'eb\'a3\'ac\'bc\'c6\'cb\'e3\'b1\'ed\'b4\'ef\'ca\'bd\'b5\'c8\'a3\'bb\'d2\'bb\'b4\'ce\'d0\'d4\'b5\'c4watch\'b4\'b0\'bf\'da\par
+try-catch\'a3\'ba\'bf\'c9\'d7\'d4\'b6\'a8\'d2\'e5\'b4\'ed\'ce\'f3\'c0\'e0\'d0\'cd\'a3\'ac\'bc\'cc\'b3\'d0\'d7\'d4ApplicationException\par
+\par
+4\\oop\'bc\'bc\'ca\'f5\par
+\par
+#############################################\'bd\'d3\'bf\'da\'ba\'cd\'c0\'e0\'b5\'c4\'c7\'f8\'b1\'f0\par
+\'bd\'d3\'bf\'da\'a3\'ba\'b0\'d1\'b7\'bd\'b7\'a8\'ba\'cd\'ca\'f4\'d0\'d4\'d7\'e9\'ba\'cf\'c6\'f0\'c0\'b4\'a3\'ac\'d2\'d4\'b7\'e2\'d7\'b0\'cc\'d8\'b6\'a8\'b9\'a6\'c4\'dc\'b5\'c4\'d2\'bb\'b8\'f6\'bc\'af\'ba\'cf\par
+\'c3\'bf\'b8\'f6\'d6\'a7\'b3\'d6\'bd\'d3\'bf\'daX\'b5\'c4\'c0\'e0\'b6\'bc\'d6\'a7\'b3\'d6\'d5\'e2\'d0\'a9\'b7\'bd\'b7\'a8\'ba\'cd\'ca\'f4\'d0\'d4\par
+\'bd\'d3\'bf\'da\'b3\'c9\'d4\'b1\'b5\'c4\'b6\'a8\'d2\'e5\'a3\'ba\'ce\'depublic\'a1\'a2private\'a1\'a2protected\'ba\'cdinternal\'b5\'c8\'b7\'c3\'ce\'ca\'d0\'de\'ca\'ce\'b7\'fb\'a3\'ac\'b2\'bb\'c4\'dc\'b6\'a8\'d2\'e5\'d7\'d6\'b6\'ce\'b3\'c9\'d4\'b1\'a3\'ac\'b2\'bb\'c4\'dc\'d3\'c3static\'a1\'a2virtual\'a1\'a2abstract\'bb\'f2sealed\'c0\'b4\'b6\'a8\'d2\'e5\'a3\'ac\'b2\'bb\'c4\'dc\'b0\'fc\'ba\'ac\'b4\'fa\'c2\'eb\'cc\'e5\par
+\'ca\'b5\'cf\'d6\'bd\'d3\'bf\'da\'b5\'c4\'c0\'e0\'b1\'d8\'d0\'eb\'b0\'fc\'ba\'ac\'b8\'c3\'bd\'d3\'bf\'da\'cb\'f9\'d3\'d0\'b3\'c9\'d4\'b1\'b5\'c4\'ca\'b5\'cf\'d6\'b4\'fa\'c2\'eb\par
+##############################################\'bf\'d8\'d6\'c6\'b7\'c3\'ce\'ca\'d0\'d4\'b5\'c4\'b9\'d8\'bc\'fc\'d7\'d6\'a3\'ba\par
+\'ce\'de\'bb\'f2internal\'ba\'cdpublic\'d0\'de\'ca\'ce\'c0\'e0\'ba\'cd\'bd\'d3\'bf\'da\'a3\'ac\'bf\'d8\'d6\'c6\'bf\'c9\'b7\'c3\'ce\'ca\'d0\'d4\'a3\'acabstract\'ba\'cdsealed\'d0\'de\'ca\'ce\'c0\'e0\'bf\'d8\'d6\'c6\'bc\'cc\'b3\'d0\'d0\'d4\'a3\'bbpublic partical class\par
+\'d0\'de\'ca\'ce\'c0\'e0\'b3\'c9\'d4\'b1\'a3\'bapublic private internal protected\par
+static\'a3\'ba\'c0\'e0\'b5\'c4\'be\'b2\'cc\'ac\'b3\'c9\'d4\'b1\'a3\'ac\'b2\'bb\'ca\'c7\'c0\'e0\'b5\'c4\'ca\'b5\'c0\'fd\'b3\'c9\'d4\'b1\par
+\'b6\'a8\'d2\'e5\'d7\'d6\'b6\'ce\'a3\'bapublic readonly\'a3\'a8\'b3\'f5\'ca\'bc\'bb\'af\'b8\'b3\'d6\'b5\'a3\'ac\'bb\'f2\'b9\'b9\'d4\'ec\'ba\'af\'ca\'fd\'b8\'b3\'d6\'b5\'a3\'a9 static\'a3\'a8\'d3\'c9\'c0\'e0\'b7\'c3\'ce\'ca\'a3\'ac\'b2\'bb\'c4\'dc\'d3\'c9\'b6\'d4\'cf\'f3\'ca\'b5\'c0\'fd\'b7\'c3\'ce\'ca\'a3\'a9 const\'a3\'a8\'ba\'cdstatic\'ca\'f4\'d0\'d4\'cf\'e0\'cd\'ac\'a3\'a9\'b5\'c8\par
+\'b6\'a8\'d2\'e5\'b7\'bd\'b7\'a8\'a3\'bavirtual\'a3\'a8\'bf\'c9\'d6\'d8\'d0\'b4\'a3\'a9 abstract\'a3\'a8\'b1\'d8\'d0\'eb\'d4\'da\'b7\'c7\'b3\'e9\'cf\'f3\'c5\'c9\'c9\'fa\'c0\'e0\'d6\'d0\'d6\'d8\'d0\'b4\'a3\'a9 override\'a3\'a8\'ca\'c7\'d6\'d8\'d0\'b4\'b5\'c4\'b7\'bd\'b7\'a8\'a3\'a9 extern\'a3\'a8\'b7\'bd\'b7\'a8\'b6\'a8\'d2\'e5\'d4\'da\'c6\'e4\'cb\'fc\'b5\'d8\'b7\'bd\'a3\'a9\par
+\'b6\'a8\'d2\'e5\'ca\'f4\'d0\'d4\'a3\'ba\'b1\'ea\'d7\'bc\'bf\'c9\'b7\'c3\'ce\'ca\'d0\'d4\'b9\'d8\'bc\'fc\'d7\'d6\'a3\'acget set\'b7\'c3\'ce\'ca\'c6\'f7\'a3\'acabstract virtual override\'bf\'c9\'d3\'c3\'d3\'da\'ca\'f4\'d0\'d4\'b5\'ab\'b2\'bb\'bf\'c9\'d3\'c3\'d3\'da\'d7\'d6\'b6\'ce\'a3\'acget set\'bf\'c9\'d2\'d4\'d3\'d0\'d7\'d4\'c9\'ed\'b5\'c4\'bf\'c9\'b7\'c3\'ce\'ca\'d0\'d4\'a3\'a8\'b2\'bb\'b8\'df\'d3\'da\'cb\'f9\'ca\'f4\'ca\'f4\'d0\'d4\'a3\'a9\par
+\'b7\'bd\'b7\'a8\'b2\'ce\'ca\'fd\'b5\'c4\'d0\'de\'ca\'ce\'b4\'ca\'a3\'baparams out ref\par
+\par
+#############################################\'d2\'fe\'b2\'d8\'bb\'f9\'c0\'e0\'b5\'c4\'b7\'bd\'b7\'a8\par
+\'d4\'da\'c5\'c9\'c9\'fa\'c0\'e0\'d6\'d0\'b6\'a8\'d2\'e5\'d2\'bb\'b8\'f6\'ba\'cd\'bb\'f9\'c0\'e0\'be\'df\'d3\'d0\'cf\'e0\'cd\'ac\'c7\'a9\'c3\'fb\'b5\'c4\'b7\'bd\'b7\'a8\'bc\'b4\'bf\'c9\'d2\'fe\'b2\'d8\'bb\'f9\'c0\'e0\'b5\'c4\'b7\'bd\'b7\'a8\'a3\'a8\'bc\'b4\'ca\'b9\'bb\'f9\'c0\'e0\'b7\'bd\'b7\'a8\'b2\'bb\'ca\'c7virtual abstract\'c8\'d4\'c8\'bb\'bf\'c9\'d2\'d4\'d5\'e2\'d1\'f9\'d7\'f6\'a3\'a9\par
+\'d4\'da\'c5\'c9\'c9\'fa\'c0\'e0\'b5\'c4\'cf\'e0\'d3\'a6\'b7\'bd\'b7\'a8\'c7\'b0\'bc\'d3\'c9\'cfnew\'a3\'ac\'be\'cd\'bf\'c9\'d2\'d4\'b2\'bb\'cf\'d4\'ca\'be\'be\'af\'b8\'e6\'a3\'ac\'b7\'f1\'d4\'f2\'cf\'d4\'ca\'be\'be\'af\'b8\'e6\par
+\'ba\'cdoverride\'b2\'bb\'cd\'ac\'a3\'ac\'c8\'d4\'bf\'c9\'d2\'d4\'cd\'a8\'b9\'fd\'bb\'f9\'c0\'e0\'b6\'d4\'cf\'f3\'ca\'b5\'c0\'fd\'c0\'b4\'b5\'f7\'d3\'c3\'b1\'bb\'d2\'fe\'b2\'d8\'b5\'c4\'b7\'bd\'b7\'a8\par
+\par
+base\'ba\'cdthis\par
+\par
+Obeject\'c0\'e0\'b7\'bd\'b7\'a8\'a3\'ba.Equals()  .ToString() .GetType()\par
+\'b9\'b9\'d4\'ec\'ba\'af\'ca\'fd\'a3\'bapublic private\'a3\'a8\'b2\'bb\'c4\'dc\'ca\'b5\'c0\'fd\'bb\'af\'a3\'a9\par
+\'d2\'aa\'ca\'b5\'c0\'fd\'bb\'af\'c5\'c9\'c9\'fa\'c0\'e0\'a3\'ac\'d0\'e8\'d2\'aa\'cf\'c8\'ca\'b5\'c0\'fd\'bb\'af\'c6\'e4\'bb\'f9\'c0\'e0\'a3\'ac\'bb\'f9\'c0\'e0\'b5\'c4\'bb\'f9\'c0\'e0\'a1\'a3\'a1\'a3\'a1\'a3\'a3\'bb\'b3\'fd\'b7\'c7\'c3\'f7\'c8\'b7\'d6\'b8\'b6\'a8\'a3\'ac\'b7\'f1\'d4\'f2\'ca\'b9\'d3\'c3\'bb\'f9\'c0\'e0\'b5\'c4\'c4\'ac\'c8\'cf\'b9\'b9\'d4\'ec\'ba\'af\'ca\'fd\par
+public class MyDerivedClass: MyBaseClass\par
+\{\par
+\tab public MyDerivedClass(int i, int j): base(i)\par
+\tab\{\}\par
+\}\par
+class view\'a3\'ba \'ba\'cdsolution explorer\'b9\'b2\'d3\'c3\'cf\'e0\'cd\'ac\'b5\'c4\'bf\'d5\'bc\'e4\par
+object browser\'a3\'a8\'b8\'f7\'d6\'d6.NET Framework \'d6\'d0\'b0\'fc\'ba\'ac\'b5\'c4\'c0\'e0\'b5\'c4\'d0\'c5\'cf\'a2\'a3\'achelp\'ce\'c4\'b5\'b5\'a3\'a9\par
+view class diagram\'bf\'c9\'c9\'fa\'b3\'c9\'c0\'e0\'cd\'bc\par
+\'c0\'e0\'bf\'e2\'cf\'ee\'c4\'bf\'a3\'ba\'d6\'bb\'b0\'fc\'ba\'acclass\'b5\'c4\'cf\'ee\'c4\'bf\'a3\'acclass library\'a3\'ac\'d6\'bb\'c4\'dcbuild\'b2\'bb\'c4\'dcrun\'a3\'ac\'a3\'bb\'d4\'da\'c6\'e4\'cb\'fc\'cf\'ee\'c4\'bf\'d6\'d0add reference,\'d4\'f2\'c0\'e0\'bf\'e2\'d2\'d4.dll\'b5\'c4\'b7\'bd\'ca\'bd\'cc\'ed\'bc\'d3\'b5\'bd\'b5\'b1\'c7\'b0\'cf\'ee\'c4\'bf\'d6\'d0\par
+\'b6\'d4\'cf\'f3\'ba\'cd\'bd\'e1\'b9\'b9\'a3\'ba\'b6\'d4\'cf\'f3\'d2\'fd\'d3\'c3\'c0\'e0\'d0\'cd\'a3\'ac\'bd\'e1\'b9\'b9\'d6\'b5\'c0\'e0\'d0\'cd\'a3\'bb\'bd\'ab\'d2\'bb\'b8\'f6\'b1\'e4\'c1\'bf\'b8\'b3\'b8\'f8\'c1\'ed\'d2\'bb\'b8\'f6\'b1\'e4\'c1\'bf\'ca\'b1\'a3\'ac\'b6\'d4\'cf\'f3\'ca\'c7\'c7\'b3\'b8\'b4\'d6\'c6\'a3\'a8\'b8\'b4\'d6\'c6\'d2\'fd\'d3\'c3\'a3\'a9\'a3\'ac\'bd\'e1\'b9\'b9\'ca\'c7\'c9\'ee\'b8\'b4\'d6\'c6\'a3\'a8\'b8\'b4\'d6\'c6\'d6\'b5\'a3\'a9\par
+###############################################\'bc\'af\'ba\'cf\'a1\'a2\'b1\'c8\'bd\'cf\'ba\'cd\'d7\'aa\'bb\'bb\par
+\'b2\'f0\'cf\'e4\'ba\'cd\'b7\'e2\'cf\'e4\par
+Struct MyStruct \{\}\par
+MyStruct struct1 = new MyStruct();\par
+object refType = struct1;\par
+MyStruct struct2 = (MyStruct)refType;\par
+\'b7\'e2\'cf\'e4\'b5\'c4\'ba\'c3\'b4\'a6\'a3\'ba\'d4\'ca\'d0\'ed\'d4\'da\'cf\'ee\'b5\'c4\'c0\'e0\'d0\'cd\'ca\'c7object\'b5\'c4\'bc\'af\'ba\'cf\'d6\'d0\'ca\'b9\'d3\'c3\'d6\'b5\'c0\'e0\'d0\'cd\'a3\'ac\'d4\'ca\'d0\'ed\'d4\'da\'d6\'b5\'c0\'e0\'d0\'cd\'c9\'cf\'b5\'f7\'d3\'c3object\par
+\'d4\'da\'b7\'c3\'ce\'ca\'d6\'b5\'c0\'e0\'d0\'cd\'c4\'da\'c8\'dd\'c7\'b0\'a3\'ac\'b1\'d8\'d0\'eb\'bd\'f8\'d0\'d0\'b2\'f0\'cf\'e4\par
+is\'d4\'cb\'cb\'e3\'b7\'fb\'a3\'ba<operand> is <type>\par
+\par
+###############################################\'d6\'d8\'d4\'d8\'d4\'cb\'cb\'e3\'b7\'fb\par
+public static ReturnType operator ##(params-list)\par
+\par
+###############################################\'b7\'ba\'d0\'cd\par
+\'b7\'ba\'d0\'cd\'c0\'e0\'ca\'c7\'d2\'d4\'ca\'b5\'c0\'fd\'bb\'af\'b9\'fd\'b3\'cc\'d6\'d0\'cc\'e1\'b9\'a9\'b5\'c4\'c0\'e0\'d0\'cd\'bb\'f2\'c0\'e0\'ce\'aa\'bb\'f9\'b4\'a1\'bd\'a8\'c1\'a2\'b5\'c4\'a3\'ac\'bf\'c9\'d2\'d4\'ba\'c1\'b2\'bb\'b7\'d1\'c1\'a6\'b5\'d8\'b6\'d4\'b6\'d4\'cf\'f3\'bd\'f8\'d0\'d0\'c7\'bf\'bb\'af\'a1\'a3\par
+\'b7\'ba\'d0\'cd\'b2\'bb\'bd\'f6\'cf\'de\'d3\'da\'c0\'e0\'a3\'ac\'bb\'b9\'d3\'d0\'b7\'ba\'d0\'cd\'bd\'d3\'bf\'da\'a1\'a2\'b7\'ba\'d0\'cd\'b7\'bd\'b7\'a8\'a3\'ac\'c9\'f5\'d6\'c1\'b7\'ba\'d0\'cd\'ce\'af\'cd\'d0\par
+\par
+\'bf\'c9\'bf\'d5\'c0\'e0\'d0\'cd\'a3\'baSystem.Nullable<T> var\par
+e.g System.Nullable<int> nullableInt; //equals to int? nullableInt;\par
+\tab nullableInt = null;\par
+\'b6\'f8 int var\'d7\'f7\'ce\'aa\'d6\'b5\'c0\'e0\'d0\'cd\'ca\'c7\'b2\'bb\'c4\'dc\'b8\'b3\'d6\'b5\'ce\'aanull\'b5\'c4\'a1\'a3\par
+\par
+List<T> myCollection = new List<T>();\par
+int Count\par
+void Add(T item) \par
+void AddRange(IEnumerable<T>) \par
+IList<T> AsReadOnly()\par
+int Capacity\par
+void Clear()\par
+bool Contains(T item)\par
+void CopyTo(T[] array, int index)\par
+IEnumerator<T> GetEnumerator()\par
+int IndexOf(T item)\par
+void Insert(int index, T item)\par
+bool Remove(T item)\par
+bool RemoveAt(int index)\par
+\par
+\'b6\'d4\'b7\'ba\'d0\'cd\'c1\'d0\'b1\'ed\'bd\'f8\'d0\'d0\'c5\'c5\'d0\'f2\'ba\'cd\'cb\'d1\'cb\'f7\par
+List<T> myCollection = new List<T>();\par
+myCollection.Sort(Comparison<T>);\par
+myCollection.FindAll(Predicate<T>);\par
+Comparison<T>\'ba\'cdPredicate<T>\'b6\'bc\'ca\'c7\'b7\'ba\'d0\'cd\'ce\'af\'cd\'d0\'a1\'a3\par
+<T>\'b1\'ed\'ca\'be\'b7\'ba\'d0\'cd, List<T>\'b7\'ba\'d0\'cd\'c0\'e0\'a3\'acIList<T>\'b7\'ba\'d0\'cd\'bd\'d3\'bf\'da\'a3\'acComparision<T>\'b7\'ba\'d0\'cd\'ce\'af\'cd\'d0\'a3\'ac\par
+\'ce\'af\'cd\'d0\'be\'cd\'ca\'c7\'c4\'e4\'c3\'fb\'ba\'af\'ca\'fd\par
+delegate int Comparison<T>(T objectA, T objectB)\par
+delegate bool Predicate<T>(T object)\par
+\'cb\'f9\'d2\'d4myColletction.Sort()\'bf\'c9\'bd\'d3\'ca\'dc\'c8\'ce\'ba\'ce\'b7\'fb\'ba\'cf\'d2\'d4\'c9\'cf\'b7\'b5\'bb\'d8\'c0\'e0\'d0\'cd\'ba\'cd\'b2\'ce\'ca\'fd\'c0\'e0\'d0\'cd\'b5\'c4\'ba\'af\'ca\'fd\'d2\'fd\'d3\'c3\'a1\'a3\par
+e.g\par
+public class TDelegates\par
+\{\par
+\tab public static int sorter(T a, T b)\par
+\tab\{\}\par
+\}\par
+myCollection.Sort(TDelegates.sorter);\par
+or Comparision<T> comparitor = new Comparision<T>(TDelegates.sorter);\par
+myCollection.Sort(comparitor);\par
+\f3\lang1033\par
+\f2\lang2052\'b4\'b4\'bd\'a8\'b7\'ba\'d0\'cd\'c0\'e0\'a3\'ba class MyClass<T>\{\} class MyGeneralClass<T1,T2,T3>\par
+\tab default\'ba\'cdwhere\'b9\'d8\'bc\'fc\'d7\'d6\par
+\'b6\'a8\'d2\'e5\'b7\'ba\'d0\'cd\'bd\'d3\'bf\'da\'a3\'bainterface IMyInterface<T>\{\}\par
+\'b6\'a8\'d2\'e5\'b7\'ba\'d0\'cd\'b7\'bd\'b7\'a8\'a3\'bapublic T MyFunction<T>(param-list)\{\}\par
+\'b6\'a8\'d2\'e5\'b7\'ba\'d0\'cd\'ce\'af\'cd\'d0\'a3\'bapublic delegate bool MyDelegate<T>(T op)\{\}\par
+\par
+\f3\lang1033 Dictionary<K, V>\par
+Dictionary<string, int> things = new Dictionary<string, int>();\par
+things.Add("Kelly", 1);\par
+things.Add("Tom",2);\par
+foreach(string name in thins.Keys)\{\}\par
+foreach(int range in things.Value)\{\}\par
+foreach(KeyValuePair<string,int> thing in things)\{//thing.Key, thing.Value\}\par
+QQ enum\f0\lang9\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+}
+ 
