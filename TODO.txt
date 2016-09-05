@@ -1,0 +1,78 @@
+﻿linux
+python 
+java
+
+for every day:
+1\ leetcode: clarify the problem. explain your thinking. find out how this solution 
+		connects to basic data structure and algorithm
+2\ cracking the code interview
+3\ coursera course
+
+Take care of object in your problem.
+Design their API first
+4\ review algorithm: design pattern, basic data structure and algorithm
+
+ok, just look what you do not know. 
+find interview questions online!!!!
+5\ language： review what you are not familiar first.
+
+find interview questions online!!!!
+6\ os and network
+7\ interview experience online
+
+New knowledge including:
+1\ linux
+2\ git
+
+review the algorithm code
+review OS
+learn linux
+
+复习：
+1、网络原理 
+2、操作系统书 
+
+学习： 
+1、javascript， 多查资料深入理解概念
+2、java  
+4、c++ c# msdn 
+5、tcpip in runoob.com 
+6、tcpip, http, 数据库 
+
+练习： 
+1、leetcode练习：用c++,学会js后用js 1.5h 
+
+azureuser
+China2015
+
+早上：javascript
+下午:leetcode
+晚上：零散知识： os，network，git，tcp/ip，http, c++ msdn，java, linux
+
+看各种语言的面试题来补漏。
+做leetcode，重写algorithm来提高算法
+休闲时间看os，network，http，tipip
+再有时间看java
+
+c++ c# js 看面试题补漏
+重点加强c++ c#语法学习
+做leetcode
+学 os，network，tcp/ip http linux
+学 python
+继续学习js的AJAX，JQUERY
+
+c++ 函数指针
+js作用域链，活动对象（调用函数时会创造一个活动对象，活动对象内部有一个指针指向该函数被定义的环境（
+外部函数或全局）， 形成一个作用域链，
+随作用域链搜寻变量，随原型链查找属性方法
+
+c++ STL
+
+看c++书，看python面试题
+复习os
+
+看c#和python
+
+JS的作用域
+
+

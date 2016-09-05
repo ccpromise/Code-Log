@@ -1,0 +1,87 @@
+/**
+ * @constructor
+ */
+var TreeNode = function(val){
+  this.val = val;
+  this.isWord = false;
+  this.next = [];
+};
+var WordDictionary = function() {
+    this.root = new TreeNode('0');
+};
+
+/**
+ * @param {string} word
+ * @return {void}
+ * Adds a word into the data structure.
+ */
+WordDictionary.prototype.addWord = function(word) {
+    var node = this.root;
+    
+    for(var i = 0; i < word.length; i++)
+    {
+        var idx = word[i].charCodeAt()-97;
+        if(node.next[idx]===undefined)
+        {
+            node.next[idx] = new TreeNode(word[i]);
+        }
+        node = node.next[idx];
+    }
+    node.isWord = true;
+};
+
+/**
+ * @param {string} word
+ * @return {boolean}
+ * Returns if the word is in the data structure. A word could
+ * contain the dot character '.' to represent any one letter.
+ */
+WordDictionary.prototype.search = function(word) {
+    var helper = function(node, word){
+        if(word.length === 1)
+        {
+            if(word[0]==='.')
+            {
+                for(var n of node.next)
+                {
+                    if( n!==undefined && n.isWord===true)
+                    {
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                var idx = word[0].charCodeAt()-97;
+                return node.next[idx]!==undefined && node.next[idx].isWord === true;
+            }
+            return false;
+        }
+        if(word[0]==='.')
+        {
+            for(var n of node.next)
+            {
+                if(n!==undefined && helper(n, word.substr(1)) === true)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        else
+        {
+            var idx = word[0].charCodeAt() - 97;
+            return node.next[idx]!==undefined && helper(node.next[idx], word.substr(1));
+        }
+    };
+    return helper(this.root, word);
+};
+
+
+
+/**
+ * Your WordDictionary object will be instantiated and called as such:
+ * var wordDictionary = new WordDictionary();
+ * wordDictionary.addWord("word");
+ * wordDictionary.search("pattern");
+ */

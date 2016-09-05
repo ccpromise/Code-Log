@@ -1,0 +1,61 @@
+C# C++ Python JS 
+
+(1) Class
+//C#
+public class Student: Person, ICompare<Student>
+{
+	public int grade;
+	
+	public ClassA(string name, int age, int grade):base(name, age)
+	{
+		this.grade = grade;
+	}
+	public void Info()
+	{
+		Console.WriteLine();
+	}
+}
+var a = new Student("keylly", 14, 10);
+
+//C++
+class Student : public Person
+{
+public:
+	int grade;
+	Student(string name, int age, int grade);
+	void Info();
+}
+Student::Student(string name, int age, int grade): Person(name, age)//or default constructor of base class will be called
+{
+	this.grade = grade;
+}
+void Student::Info()
+{
+	cout<<
+}
+Student a; 	// default constructor
+Student a("kelly", 14, 10); 
+Student* pt = new Student();
+
+//Python
+class Student(Person):
+	grade = 0
+	__id = 0 #private property
+	
+	def __init__(self, name, age, grade):
+		Person.__init__(self, name, age)
+		self.grade = grade
+	def info(self):
+		print()
+	def __privateFunc(self):
+		
+a = Student("keylly", 14, 10);	
+
+// JS
+function Student(name, age, grade)
+{
+	Person.call(this, name, age);
+	this.grade = grade;
+	this.info = function () {};
+}
+var a = new Student("kelly", 14, 10);

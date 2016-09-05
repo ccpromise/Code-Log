@@ -10,16 +10,42 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            var p = new Box[4];
+            var p = new Solution();
+            var ans = p.IsPerfectSquare(104976);
             
 
             Console.ReadKey();
         }
-        public class Box
+        public class Solution
         {
-            public Box()
+            public bool IsPerfectSquare(int num)
             {
-                Console.WriteLine("hello");
+                if (num == 1)
+                {
+                    return true;
+                }
+                long lo = 1;
+                long hi = num;
+                long target = num;
+
+                while (lo < hi)
+                {
+                    long mid = lo + (hi - lo) / 2;
+                    long tmp = mid * mid;
+                    if (tmp > target)
+                    {
+                        hi = mid - 1;
+                    }
+                    else if (tmp < target)
+                    {
+                        lo = mid + 1;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                return false;
             }
         }
 

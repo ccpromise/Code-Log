@@ -1,0 +1,252 @@
+﻿Python 内存管理：
+底层 c， malloc和free
+次层 内存池，当申请内存的size较小时，直接在内存池进行分配和回收，避免产生大量碎片
+顶层，用户
+
+当一个对象的引用次数变为0时，会被回收
+
+由于Python对象的引用机制，我们知道，当把一个对象赋给一个变量的时候，实际上是建立了一个该变量到对象的引用。
+
+
+
+Python的函数具有非常灵活的参数形态，既可以实现简单的调用，又可以传入非常复杂的参数。
+
+默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！
+
+要注意定义可变参数和关键字参数的语法：
+
+*args是可变参数，args接收的是一个tuple；
+
+**kw是关键字参数，kw接收的是一个dict。
+
+以及调用函数时如何传入可变参数和关键字参数的语法：
+
+可变参数既可以直接传入：func(1, 2, 3)，又可以先组装list或tuple，再通过*args传入：func(*(1, 2, 3))；
+
+关键字参数既可以直接传入：func(a=1, b=2)，又可以先组装dict，再通过**kw传入：func(**{'a': 1, 'b': 2})。
+
+使用*args和**kw是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。
+
+命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。
+
+定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符*，否则定义的将是位置参数。
+
+def person(name, age, *, city, job):
+    print(name, age, city, job)
+
+
+person accept additional dictionary input, but the key can only be city and job
+
+在计算机中，函数调用是通过栈（stack）这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，
+每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出。
+
+ [x * x for x in range(1, 11) if x % 2 == 0]
+ 
+  [m + n for m in 'ABC' for n in 'XYZ']
+  
+  如果列表元素可以按照某种算法推算出来，那我们是否可以在循环的过程中不断推算出后续的元素呢？
+  这样就不必创建完整的list，从而节省大量的空间。在Python中，这种一边循环一边计算的机制，
+  称为生成器：generator。
+  
+  变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的
+  yield语句处继续执行。
+  
+  g = (x * x for x in range(10))
+  
+  def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+	
+	生成器不但可以作用于for循环，还可以被next()函数不断调用并返回下一个值，
+	直到最后抛出StopIteration错误表示无法继续返回下一个值了。
+	
+我们已经知道，可以直接作用于for循环的数据类型有以下几种：
+
+一类是集合数据类型，如list、tuple、dict、set、str等；
+
+一类是generator，包括生成器和带yield的generator function。
+
+这些可以直接作用于for循环的对象统称为可迭代对象：Iterable
+
+凡是可作用于for循环的对象都是Iterable类型；
+
+凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；
+
+集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数
+获得一个Iterator对象。
+
+
+from functools import reduce
+
+def char2num(s):
+    return {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[s]
+
+def str2int(s):
+    return reduce(lambda x, y: x * 10 + y, map(char2num, s))
+	
+	
+高阶函数：
+map reduce filter sorted(lst, key = f, reverse = false) 
+# f accepts a parameter returns a value, sort according to value
+
+try...raise...except...finally...else
+
+def foo(s):
+    n = int(s)
+    if n==0:
+        raise ValueError('invalid value: %s' % s)
+    return 10 / n
+
+def bar():
+    try:
+        foo('0')
+    except ValueError as e:
+        print('ValueError!')
+        raise
+
+bar()
+
+
+
+python:
+1\基本数据类型：
+number, string, list, tuple, set, dictionary
+l = [1,2,3];
+t = (1,2,3);
+s = {1,2,3};
+d = {"name":"harry","age":56};
+
+l.append()
+l.pop()
+len(l)
+l.insert()
+l.index()
+l.sort()
+l.reverse()
+l.copy()
+sorted(l)
+reversed(l)
+
+列表推导式：序列的.map()方法
+[2*x for x in [1,2,3]] return [2,4,6]
+[[x, 2*x] for x in [1,2,3]] return [[1,2],[2,4],[3,6]]
+[x**2 for x in [1,2,3] if x>2]
+[x*y for x in X for y in Y]
+[[m[i] for m in matrix] for i in range(len(matrix[0]))]
+
+tuple略
+
+set
+s1 = {1,2,3,4}
+s2 = {2,3,4,5}
+s3 = set('absdfw')
+1 in s
+s1|s2
+s1&s2
+s1-s2
+s1^s2 = s1|s2-s1&s2
+
+dictionary
+d = {"name":"harry", "age":56}
+d = dict(name="harry", age=56)
+d["name"]
+d.keys
+d.values
+k in d.keys()
+for k, v in d.items()
+
+注意:
+len()
+x in X
+for x in X/X.items()
+是list，string， tuple， set， dictionay公用的
+
+
+2\对象与变量
+类型属于对象，变量没有类型，变量可以理解为是内存中一个对象的引用
+number，string，tuple属于不可修改变量
+a = 1;
+a = 2;
+1因为不能改变，所以被抛弃，a指向了一个新的内存int对象，值为2
+
+3\参数传递
+def f(a)
+	a = 10;
+x = 1
+f(x)
+print(x)
+//x仍然为1，当x传递给a时，x和a都指向内存中值为1的int对象。
+//a = 10，使得内存中重新开辟了一块地址存储值为10的int对象，a指向了新的地址
+//x依然指向1
+
+4\基本语法
+for while try except if class等模块要写：，
+其余当行语句不用；结尾
+
+5\import
+import module
+from module import func1, func2
+如果模块除了方法定义，还包括可执行代码，则模块第一次import的时候
+这些代码会被执行一次
+dir(module)返回模块内定义的所有名称
+
+6\输入输出
+print('{0} 和 {1}'.format('Google', 'Runoob'))
+print('{name}网址： {site}'.format(name='菜鸟教程', site='www.runoob.com'))
+str = input("请输入：");
+open(filename, mode)
+f = open("/tmp/foo.txt", "w")
+f.write() f.read() f.readline() 
+for line in f
+f.close()
+
+7\OS
+os 模块提供了非常丰富的方法用来处理文件和目录。
+
+8\异常
+try语句按照如下方式工作；
+首先，执行try子句（在关键字try和关键字except之间的语句）
+如果没有异常发生，忽略except子句，try子句执行后结束。
+如果在执行try子句的过程中发生了异常，那么try子句余下的部分将被忽略。如果异常的类型和 except 之后的名称相符，那么对应的except子句将被执行。最后执行 try 语句之后的代码。
+如果一个异常没有与任何的except匹配，那么这个异常将会传递给上层的try中。
+
+try except 语句还有一个可选的else子句，如果使用这个子句，那么必须放在所有的except子句之后。这个子句将在try子句没有发生任何异常的时候执行。
+
+Python 使用 raise 语句抛出一个指定的异常
+
+你可以通过创建一个新的exception类来拥有自己的异常。异常应该继承自 Exception 类，或者直接继承，或者间接继承
+
+try 语句还有另外一个可选的子句，它定义了无论在任何情况下都会执行的清理行为。
+
+9\面向对象
+class people:
+	#私有属性和方法以双下划线开头
+	__weight = 0
+	def __init__(self, name, age, weight):
+		self.name = name
+		self.age = age
+		self.__weight = weight
+	def speak(self):
+		print("%s speaks: I am %d years old." % (self.name, self.age));
+
+class student(people):
+	grade = ""
+	def __init__(self, name, age, weight, grade):
+		#调用父类的构造函数
+		people.__init__(self, name, age, weight)
+		this.grade = grade
+	#覆盖父类方法
+	def speak(self):
+		print("%s speaks: I am a %s grade student."%(self.name, self.grade))
+		
+s = student("kelly", 10, 30, "grade four");		
+#重载运算符直接重新定义函数
+
+
+others:
+1\ l = [], 不能直接读取或对l[0].l[1]等赋值，
+	而对于dict()或者class，可以直接通过.key = value赋值或者创建对象的属性，即使key没有声明

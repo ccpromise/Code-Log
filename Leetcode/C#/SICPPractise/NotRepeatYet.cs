@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Algorithm.Source_Code.Chapter1;
 
 namespace SICPPractise
 {
@@ -307,6 +308,279 @@ namespace SICPPractise
                 gragh[edges[i, 0]].Add(edges[i, 1]);
             }
             return gragh;
+        }
+    }
+
+    public class Solution347
+    {
+        public IList<int> TopKFrequent(int[] nums, int k)
+        {
+            var m = new Dictionary<int, int>();
+            var pq = new MaxPQ<Pair>(nums.Length);
+            var ret = new List<int>();
+
+            foreach(var n in nums)
+            {
+                if (!m.ContainsKey(n))
+                {
+                    m.Add(n, 1);
+                }
+                else
+                {
+                    m[n]++;
+                }
+            }
+
+            var N = m.Count;
+
+            foreach(var key in m.Keys)
+            {
+                pq.Insert(new Pair(key, m[key]));
+                if(pq.Size()>N-k)
+                {
+                    ret.Add(pq.DelMin().first);
+                }
+            }
+            return ret;
+        }
+
+
+        private class Pair:IComparable<Pair>
+        {
+            public int first;
+            public int second;
+            public Pair(int a, int b)
+            {
+                this.first = a;
+                this.second = b;
+            }
+
+            public int CompareTo(Pair other)
+            {
+                return this.second - other.second;
+            }
+        }
+    }
+
+    public class Solution241
+    {
+        public IList<int> DiffWaysToCompute(string input)
+        {
+            var ret = new List<int>();
+
+            if(input.Length==1)
+            {
+                ret.Add(input[0] - '0');
+                return ret;
+            }
+            if(input.Length==3)
+            {
+                var a = input[0] - '0';
+                var b = input[2] - '0';
+
+                if(input[1]=='+')
+                {
+                    ret.Add(a + b);
+                }
+                else if(input[1]=='-')
+                {
+                    ret.Add(a - b);
+                }
+                else
+                {
+                    ret.Add(a * b);
+                }
+                return ret;
+            }
+            for(var i = 0;i<input.Length-2;i+=2)
+            {
+                var n = DiffWaysToCompute(input.Substring(i, 3))[0];
+                var newInput = input.Substring(0, i) + n.ToString() + input.Substring(i + 3);
+
+                ret.AddRange(DiffWaysToCompute(newInput));
+            }
+            return ret;
+        }
+    }
+
+    public class Solution368
+    {
+        public IList<int> LargestDivisibleSubset(int[] nums)
+        {
+            if(nums.Length == 0)
+            {
+                return new List<int>();
+            }
+            var dic = new List<IList<int>>;
+            var ret = new List<int>(nums[0]);
+
+            dic.Add(new List<int>());
+            dic[0].Add(nums[0]);
+            for(var i = 1;i<nums.Length;i++)
+            {
+                dic.Add(new List<int>());
+                dic[i].Add(nums[i]);
+                for (var j = 0;j< i;j++)
+                {
+                    if(nums[i]%nums[j]==0 && dic[i].Count<=dic[j].Count)
+                    {
+                        dic[i].Clear();
+                        foreach(var item in dic[j])
+                        {
+                            dic[i].Add(item);
+                        }
+                        dic[i].Add(nums[i]);
+
+                    }
+                }
+            }
+
+        }
+    }
+
+    public class Solution43
+    {
+        public string Multiply(string nums1, string nums2)
+        {
+            var m = nums1.Length;
+            var n = nums2.Length;
+            var sum = new int[m + n];
+            var ret = "";
+
+            for (var i = m-1; i >= 0; i--)
+            {
+                for (var j = n-1; j >= 0; j--)
+                {
+                    var r = (nums1[i] - '0') * (nums2[j] - '0') + sum[i + j + 1];
+
+                    sum[i + j + 1] = r % 10;
+                    sum[i + j] += r / 10;
+                }
+            }
+            var k = 0;
+
+            while (k < m + n && sum[k] == 0)
+            {
+                k++;
+            }
+            if (k == m + n)
+            {
+                return "0";
+            }
+            while (k < m + n)
+            {
+                ret += sum[k++];
+            }
+            return ret;
+        }
+    }
+
+    public class Solution79
+    {
+        public bool Exist(char[,] board, string word)
+        {
+            var m = board.GetLength(0);
+            var n = board.GetLength(1);
+
+            for(var i = 0;i< m;i++)
+            {
+                for(var j = 0;j< n;j++)
+                {
+                    if(board[i,j]==word[0])
+                    {
+                        var visited = new bool[m, n];                       
+                        if(Helper(board, word, 0, visited, i, j, m, n)==true)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        private bool Helper(char[,] board, string s, int t, bool[,] visited, int i, int j, int m, int n)
+        {
+            visited[i, j] = true;
+            if (t==s.Length-1)
+            {
+                return true;
+            }
+            if(i-1>=0 && visited[i-1, j]==false && board[i-1, j]==s[t+1])
+            {
+                if( Helper(board, s, t + 1, visited, i - 1, j, m, n))
+                {
+                    return true;
+                }
+            }
+            if(i+1<m && visited[i+1, j]==false && board[i+1, j]==s[t+1])
+            {
+                if(Helper(board, s, t+1, visited, i+1, j, m, n))
+                {
+                    return true;
+                }
+            }
+            if(j-1>=0 && visited[i, j-1]==false && board[i, j-1]==s[t+1])
+            {
+                if(Helper(board, s, t+1, visited, i, j-1, m, n))
+                {
+                    return true;
+                }
+            }
+            if(j+1<n && visited[i, j+1]==false && board[i, j+1]==s[t+1])
+            {
+                if(Helper(board, s, t+1, visited, i, j+1, m, n))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+    }
+
+    public class Solution127
+    {
+        public int LadderLength(string beginWord, string endWord, ISet<string> wordList)
+        {
+            Queue<string> q = new Queue<string>();
+            var dist = 2;
+
+            wordList.Add(endWord);
+            AddWords(beginWord, wordList, q);
+            while(q.Count!=0)
+            {
+                var size = q.Count;
+                for(var i = 0;i<size;i++)
+                {
+                    var w = q.Dequeue();
+                    if(w==endWord)
+                    {
+                        return dist;
+                    }
+                    AddWords(w, wordList, q);
+                }
+                dist++;
+            }
+            return 0;
+        }
+
+        private void AddWords(string word, ISet<string> wordList, Queue<string> q)
+        {
+            wordList.Remove(word);
+            for(var i = 0; i<word.Length;i++)
+            {
+                for(var j = 0;j<26;j++)
+                {
+                    var k = 'a' + j;
+                    var newWord = word.Substring(0, i) + k + word.Substring(i + 1);
+                    if(wordList.Contains(newWord))
+                    {
+                        q.Enqueue(newWord);
+                        wordList.Remove(newWord);
+                    }
+                }
+            }
         }
     }
 }

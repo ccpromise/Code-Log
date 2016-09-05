@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Algorithm">
+      <HintPath>..\..\..\Algorithm\Code\Algorithm\bin\Debug\Algorithm.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\Array\ArrayPuzzle.cs" />
+    <Compile Include="Algorithm\Array\Median.cs" />
     <Compile Include="Algorithm\Internal\BinaryTree.cs" />
     <Compile Include="Algorithm\Internal\IterationProcess.cs" />
     <Compile Include="Algorithm\Internal\ListNode.cs" />

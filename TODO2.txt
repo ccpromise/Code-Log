@@ -1,0 +1,26 @@
+TODO:
+
+1\ operating system
+2\ network, tcp/ip, http
+3\ review and read book
+4\ language
+5\ algorithm
+6\ leetcode
+
+1\ mock interview
+2\ finish cracking book 
+3\ language and cracking book repeat
+
+
+
+Remeber:
+1\ keep practise and energitic
+2\ keep a clear mind. Do not hurry. Keep calm. Be confident and logical.
+
+
+1\ leetcode&algorithm review: think about how to solve problems 1h
+2\ cracking book and review 1h
+3\ language and log review 30mins
+4\ mock interview
+
+???????behavioral questions!
