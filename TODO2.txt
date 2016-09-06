@@ -1,5 +1,11 @@
 TODO:
 
+1\ c++ input/output from console/file
+2\ leetcode: how to solve problems
+3\ algorithm
+4\ crack book review
+5\ log review
+
 1\ operating system
 2\ network, tcp/ip, http
 3\ review and read book
