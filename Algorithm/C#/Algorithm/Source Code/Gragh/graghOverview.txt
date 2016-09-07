@@ -1,0 +1,5 @@
+Digraph:
+
+1\ detect and print path
+2\ if no path, give topological order
+3\ strong component: reverse graph and reverse postorder.

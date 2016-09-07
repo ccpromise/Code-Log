@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -106,7 +106,7 @@ namespace Algorithm.Source_Code.Chapter3
                 }
                 else if (!visited[w])
                 {
-                    path[w] = v;
+                    path[v] = w;
                     DFSHelper(w);
                 }
                 else if(onStack[w])
