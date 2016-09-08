@@ -20,6 +20,77 @@ namespace Algorithm.Source_Code.Chapter3
     ///     Decouple the data and the operation you can apply on this data.
     ///     Preprocess in constructor that can efficiently support clients' query.
     /// </summary>
+    
+    // no negative weight
+    public class ShortestPath
+    {
+    	public ShortestPath
+    }
+    
+    // no cycle
+    public class ShortestPath
+    {
+    	private IList<int> topologicalOrder;
+    	private DirectedGragh g;
+    	private int N;
+    	private IList<double> distTo;
+    	private IList<double> pathTo;
+    	
+    	public ShortestPath(DirectedGragh g)
+    	{
+    		this.g = g;
+    		topologicalOrder = Gragh.TopologicalSort(g);
+    		N = g.numV();
+    		distTo = new List<double>(N);
+    		pathTo = new List<int>(N);
+    		for(var i = 0; i < N; i++)
+    		{
+    			distTo = double.MaxValue;
+    		}
+    		distTo[topologicalOrder[0]] = 0;
+    		visit(0);
+    	}
+    	
+    	public double shortestDist(int v, int w)
+    	{
+    		if(v >= N || w >= N)
+    		{
+    			throw new Exception();
+    		}
+    		int i = 0;
+    		while(i < N && topologicalOrder[i] != v)
+    		{
+    			if(topologicalOrder[i] == w)
+    			{
+    				return double.MaxValue;
+    			}
+    		}
+    		return distTo[w] - distTo[v];
+    	}
+    	
+    	public IList<int> shortestPath(int v, int w)
+    	{
+    		
+    	}
+    	
+    	private void visit(int idx)
+    	{
+    		var v = topologicalOrder[idx];
+    		foreach(var e in g.EdgeFrom(v))
+    		{
+    			var w = e.To();
+    			if(distTo[w] > distTo[v]+e.Weight())
+    			{
+    				distTo[w] = distTo[v]+e.Weight();
+    			}
+    		}
+    		if(idx <  g.numV()-1)
+    		{
+    			visitopologicalOrder(idx+1);
+    		}    		
+    	}
+    }
+    
     public class ShortestPath
     {
         private EdgeWeightedDigragh g;
@@ -90,6 +161,8 @@ namespace Algorithm.Source_Code.Chapter3
                     }
                 }
             }
+            var next = pq.DelMin();
+            Visit(next.Item1());
         }
     }
 
