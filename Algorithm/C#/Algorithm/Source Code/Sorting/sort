@@ -1,0 +1,272 @@
+public static class Sort
+{
+	public static void InsertionSort(IComparable[] arr)
+	{
+		// arr[0:i-1] is sorted and insert arr[i] to the right place
+		var N = arr.Count();
+		for(var i = 1; i < N; i++)
+		{
+			var j = 0;
+			while(j < i && Less(arr[j], arr[i])) 
+			{
+				j++;
+			}
+			var tmp = arr[i];
+			var k = i;
+			while(k > j)
+			{
+				arr[k] = arr[k-1];
+				k--;
+			}
+			arr[j] = tmp;
+		}
+	}
+	
+	public static void BubbleSort(IComparable[] arr)
+	{
+		// start from the end, move the next smallest one to the left
+		var N = arr.Count();
+		var i = 0;
+		var flag = true;
+		while(i < N - 1 && flag == true)
+		{
+			flag = false;
+			var j = N-1;
+			while(j > i)
+			{
+				if(Less(arr[j], arr[j-1]))
+				{
+					Swap(arr, j, j-1);
+					flag = true;
+				}
+				j--;
+			}
+		}
+	}
+	
+	public static void SelectionSort(IComparable[] arr)
+	{
+		//arr[0:i-1] already sorted, find the smallest element in arr[i:] and swap it with arr[i]
+		var N = arr.Count();
+		var i = 0;
+		while(i < N-1)
+		{
+			var minIdx = i;
+			var j = i+1;
+			while(j < N)
+			{
+				if(Less(arr[j], arr[minIdx]))
+				{
+					minIdx = j;
+				}
+				j++;
+			}
+			Swap(arr, i, minIdx);
+			i++;
+		}
+	}
+	
+	// QuickSort: select a element and put it in right place. sort left and sort right.
+	public static void QuickSort(IComparable[] arr)
+	{
+		QuickSortHelper(arr, 0, arr.Count()-1);
+	}
+	
+	private void QuickSortHelper(IComparable[] arr, int lo, int hi)
+	{
+		if(lo >= hi) return;
+		var i = lo+1;
+		var j = lo+1;
+		while(j <= hi)
+		{
+			if(Less(arr[j], arr[lo]))
+			{
+				Swap(arr, i, j);
+				i++;
+			}
+			j++;
+		}
+		Swap(arr, lo, i-1);
+		QuickSortHelper(arr, lo, i-2);
+		QuickSortHelper(arr, i, hi);
+	}
+	
+	// sort left, sort right. and then merge the two parts.
+	public static void MergeSort(IComparable[] arr)
+	{
+		MergeSortHelper(arr, 0, arr.Count()-1);
+	}
+	
+	private stativ void MergeSortHelper(IComparable[] arr, int lo, int hi)
+	{
+		if(lo >= hi) return;
+		var mid = (lo+hi)/2;
+		MergeSortHelper(arr, lo, mid);
+		MergeSortHelper(arr, mid+1, hi);
+		IComparable[] sorted = new IComparable[hi-lo+1];
+		var i = lo;
+		var j = mid+1;
+		var k = 0;
+		while(i <= mid && j <= hi)
+		{
+			if(Less(arr[i], arr[j]))
+			{
+				sorted[k++] = arr[i++];
+			}
+			else
+			{
+				sorted[k++] = arr[j++];
+			}
+		} 
+		while(i <= mid)
+		{
+			sorted[k++] = arr[i++];
+		}
+		while(j <= mid)
+		{
+			sorted[k++] = arr[j++];
+		}
+		k = 0;
+		while(k < hi-lo+1)
+		{
+			arr[lo+k] = sorted[k];
+			k++;
+		}
+	}
+	
+	public static void HeapSort(IComparable[] arr)
+	{
+		BuildHeap(arr);
+		var N = arr.Count();
+		for(var i = N-1; i > 0; i--)
+		{
+			Swap(arr, 0, i);
+			sink(arr, 0, i-1);
+		}
+	}
+	
+	private static void BuildHeap(IComparable[] arr)
+	{
+		var N = arr.Count();
+		for(var i = (N-2)/2; i >=0; i--)
+		{
+			var maxIdx = 2*i+1;
+			if(2*i+2 < N && Less(arr[maxIdx], arr[2*i+2])
+			{
+				maxIdx = 2*i+2;
+			}
+			if(Less(arr[i], arr[maxIdx]))
+			{
+				Swap(arr, i, maxIdx);
+			}
+		}
+	}
+	
+	// sink(arr, i, hi): swap arr[i] with its bigger children until arr[i] is bigger than both children
+	private static void Sink(IComparable[] arr, int i, int hi)
+	{
+		while(2*i+1 <= hi)
+		{
+			var maxIdx = 2*i+1;
+			if(2*i+2 <= hi && Less(arr[maxIdx], arr[2*i+2]))
+			{
+				maxIdx = 2*i+2;
+			}
+			if(Less(arr[i], arr[maxIdx]))
+			{
+				swap(arr, i, maxIdx);
+				i = maxIdx;
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+	
+	public static void QuickSort3Way(IComparable[] arr)
+	{
+		QuickSort3WayHelper(arr, 0, arr.Count()-1);
+	}
+	
+	private static void QuickSort3WayHelper(IComparable[] arr, int lo, int hi)
+	{
+		if(lo >= hi) return;
+		var less = lo+1;
+		var greater = hi;
+		var i = lo+1;
+		while(i <= greater)
+		{
+			if(Less(arr[i], arr[lo])
+			{
+				swap(arr, i, less);
+				less++;
+			}
+			else if(Greater(arr[i], arr[lo]))
+			{
+				swap(arr, i, greater);
+				greater--;
+				i--;
+			}
+			i++;
+		}
+		swap(arr, lo, less-1);
+		QuickSort3WayHelper(arr, lo, less-2);
+		QuickSort3WayHelper(arr, greater+1, hi);
+	}
+	
+	// iteration of merge sort. m
+	public static void MergeSort(IComparable[] arr)
+	{
+		var N = arr.Count();
+		for(var len = 1; len < N; len *= 2)
+		{
+			for(var i = 0; i + len < N; i += 2*len) // merge [0:len-1:2*len-1] [2*len:3*len-1;4*len-1] ...
+			{
+				var lo = i;
+				var mid = i+len-1;
+				var hi = i+2*len-1;
+				merge(arr, lo, mid, hi);
+			}
+		}
+	}
+	
+	private void merge(IComparable[] arr, int lo, int mid, int hi)
+	{
+		var sorted = new IComparable[hi-lo+1];
+		var i = lo;
+		var j = mid+1;
+		var k = 0;
+		while(i <= mid && j <= hi)
+		{
+			if(Less(arr[i], arr[j]))
+			{
+				sorted[k++] = arr[i++];
+			}
+			else
+			{
+				sorted[k++] = arr[j++];
+			}
+		} 
+		while(i <= mid)
+		{
+			sorted[k++] = arr[i++];
+		}
+		while(j <= hi)
+		{
+			sorted[k++] = arr[j++];
+		}
+		k = 0;
+		while(k < hi-lo+1)
+		{
+			arr[lo+k] = sorted[k];
+			k++;
+		}
+
+	}
+	
+	private static bool Less(IComparable a, IComparable b)
+	{
+		return a.CompareTo(b) < 0;
+	}
+}

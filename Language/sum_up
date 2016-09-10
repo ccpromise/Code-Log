@@ -1,0 +1,330 @@
+public class Student: Person
+{
+	public Student(string name, string id):base(name, id)
+	{
+		
+	}
+	
+	public void PrintInfo()
+	{
+		
+	}
+}
+var student = new Student("kelly", 14210720037)
+
+
+
+List<> : .Add() .Remove() .RemoveAt() .Insert(idx, item) 
+		 .First() .Last()
+		 .Count() .
+		 .Sort() .Reverse()
+Dictionary<>: .Add(key, val) .Remove(key) .ContainsKey(key)
+	       .Count() .Keys() .Values()
+		map[key]
+Tuple<>: .Item1 .Item2
+	cannot be modified
+Stack<>: .push() .pop() .peek()
+Queue<>: .push() .pop() .peek()
+string: immutable .Substring()
+StringBuilder: .Append()
+value type: number boolean struct enum nullable
+reference type: string array objects
+
+.ToString() Convert.ToInt32()
+Int32.MaxValue()
+
+Func<int,int,bool> or delegate
+
+long: 64 bits
+
+using alias = Tuple<int,int,int>; // like typedef in c++
+
+IO
+Console.ReadLine()
+Console.Read() Console.ReadKey()
+FileStream StreamReader StreamWriter
+
+MSDN:
+1\ namespace XXX{
+	class XXX{
+		static void main(){}}}
+   under namespace, you can define class, struct, interface, delegate, enum, or other namespace.
+
+2\ class vs struct
+   class is reference type.When an object created, the variable which the object assigns to only holds a reference to that object.when it assigns to a new variable, the variable only holds a reference to the original data.
+   struct is value type. The variable holds the real data. And assignment will copy the data. 
+   class: more complicated behaviour. support inheritance.
+   struct: new operator is not needed to create an instance of struct. can not have default constructor.
+    By contrast, the memory that is allocated for a class instance is automatically reclaimed (garbage collected) by the common language runtime when all references to the object have gone out of scope. It is not possible to deterministically destroy a class object like you can in C++.
+
+3\ ref vs out
+   pass parameters by reference. ref should be initialised before passing to function. out is often used when you want return multiple results from a function.
+
+4\ LINQ
+	Innumerable<int> query = from item in source
+					where item < 3
+						select item // select String.Format(“The score is {0}.”, score)
+       <=> sources.where(item => item < 3)
+
+5\ operator overload:
+	public static MyClass operator+(MyClass a, MyClass b)
+	public static explicit operator B(A obj) { return new B();}
+	static, no reference, must be friend method.
+
+6\ abstract vs virtual:
+	abstract: both class and method. abstract class cannot instantiate. abstract method has no implementation. must be implemented by non-abstract derived class.
+	virtual: can be override in derived class. 
+
+7\ virtual vs new:
+	new does not support polymorphism. just hide the implementation of base class.
+
+8\ access level:
+	public private protected (internal / protected internal)
+
+9\ static:
+	static class: can only contains static member. can not be initiated. can only contain static constructor. can not inherit.
+
+10\ index:
+	public T this[K key]{ get{ return  } set{ = value } }
+
+11\ nullable:
+	represent the correct range of values plus an additional null value.
+	int? a = int or null
+
+12\ is vs as:
+	a is b returns true or false;
+	a as b returns (b)a or null;
+
+13\ what will happen when T[] are = new T[10]; depends on T is value type of reference type.
+	if value type, will create 10 elements with default value of that type.	
+	if reference type, will create 10 elements with null.
+	
+14\ static vs const vs readonly
+	static member is owned by class, does not belong to any instances.
+	const and readonly mean a data once initialised, cannot be modified.
+	but const member has to be initialised when you declare it.readonly member can be initialised at constructor.
+
+15\ using:
+	import namespace
+	typedef: create another name for a type
+	handle exception
+	using static system.Math: directly access static member in Math without class name.
+
+16\ abstract class vs interface
+	they are two different data structures. but they share some common property.
+ 	an interface is like an abstract class with all abstract methods. any class supporting this interface must provide all the implementation.A class can support multiple interfaces.
+	interface does not have constructor or destructor.
+	On the other hand, abstract class can have concrete methods or abstract methods. its member can be public or private. It has constructor. Any non-abstract class inheriting from abstract class must provide implementation for abstract methods.
+
+
+17\ extension methods
+	Extension methods enable you to add methods to existing types without creating a new derived type
+
+
+
+********************************************************************************
+c++ pass parameter by reference and pointer.
+pointer use -> to refer member
+
+
+class Student: public Person
+{
+public:
+	Student(string name, string id): Person(name, id);
+	void PrintInfo();
+}
+void Student::PrintInfo()
+{
+	
+}
+
+Student a("keylly", "14210720037");
+Student* a = new Student("keylly", "14210720037");
+
+
+vector<>: .push_back() .pop_back() .insert(where, item) .erase(where)
+	   .front() .back()
+           .begin() .end()
+	   reverse(where, where) .sort(where, where) copy(begin, end, where)
+	    max() min() abs()
+map<>: .find(key) a[key] = val or a.insert(pair<>(key, val))
+	.erase(key)
+	.begin() .end() a[]
+	for(map<>::iterator it = m.begin(); it != m.end(); it++){ //it->first //it->second}
+set<>: .insert() .erase() .find()
+	.begin() .end()
+	can not be indexed
+stack<>: .push() .pop() .top() .size()
+queue<>: .push() .pop() .front() .size()
+string: mutable .substr(idx, len)
+string <=> number: to_string string stream
+
+INT32_MAX
+INT32_MIN
+rand()%N
+function<return_type(para_type_list)>
+function pointer: void (*f)(int)
+long long: 64 bits
+#define LENGTH 5;
+typedef pair<int,int> pr;
+typedef void (*func) (int);
+lambda expression: [](int a, int b){ return a+b; }
+
+sizeof(arr_name): #element * element_size
+sizeof(pointer): by system
+sizeof(str): include \0
+strlen(str): exclude \0
+char arr[] = “ab”: sizeof() = 3 strlen() = 2
+char arr[10] = “ab”: sizeof() = 10 strlen() = 2
+
+
+
+IO
+cin >> space/tab/enter as terminator and dropped, read non-space character until not satisfying.
+cin.get() can read space/tab/enter. keep enter in stream
+cin.getline() read until enter. drop enter
+ifstream infile(“file_name”);
+whiel(infile.good())  while(getline(infile, line))  while(!inFile.eof())
+infile.getline()
+infile.close()
+ofstream ofile(“file_name”);
+ofile << some_string;
+ofile.put() file.write()
+
+
+MSDN：
+
+1\ operator overload
+public: MyClass operator+(const MyClass& other)
+friend MyClass operator+(const MyClass& obj1, const MyClass& obj2)
+friend ostream& operator<<(ostream& os, const MyClass& obj)
+public: T& operator[](K key)const { return }
+
+2\ type conversion from class type to value type
+public: operator int() { this…; return some_int; }
+public: explicit operator int() const {}
+
+3\ four default members:
+	default constructor: object array 
+	deconstructor
+	copy constructor: pass object by value or return object. use one object to initiate another.
+	assignment operator
+
+4\ inheritance and polymorphsim
+	reference/pointer of base class can refer/point to derived class type
+	if not virtual, function will be called according to reference/pointer type.(early binding)
+	otherwise, function will be called according to the object type.(late binding)
+	virtual function table.
+	inherit all but private member, except constructor, deconstructor, copy constructor, overload operator and friend function.
+
+5\ array name vs pointer
+	array name is a pointer to the first element in array, but cannot be left value
+	the size of array name == #element*element_size
+	the size of pointer == system bits
+
+6\ reference vs pointer
+	reference cannot be null. must be initiate when you declare it. and reference is immutable.
+	
+
+7\ generic vs template
+	syntax diff
+	generic is strong type(if no constraint, only object’s method can be used)
+	generic can apply constraint on type.
+	generic does not support explicit specialisation
+	generic instantiate at run time
+
+8\ storage type in c++:
+	auto register static extern
+	static duration: is allocated when the program starts and is deallocated when the program ends.
+	external linkage: is visible outside of the file
+	internal linkage: not visible outside
+	static global variable: static duration and internal linkage.
+	static function variable: state will keep during function calls.
+	static class member: shared by all the instances.
+
+9\ static class member:
+	static int count; // initiate outside, can be modified
+	static const int size; // initiate when declare it. cannot be modified.
+	static int func(); // can only use static member.
+
+10\ stack vs heap:
+	heap is allocated by programmer at running time.
+	stack is allocated by operating system.
+
+11\ const:
+	generally const means unmodified data. it can be used in different situations.
+	1\ const int a = 10; const object must be initialed if not extern.static variable that are 		declared with no initialiser are initialised to 0.
+	2\ const modifies function parameter: const int* p / int* const p
+ 	3\ const method: not modify the object who calls it.
+
+12\ vector<int>::iterator:
+	find(begin, end, val);
+        copy(begin, end, another_begin);
+        sort(begin, end);
+        reverse(begin, end);
+********************************************************************************
+class Student(Person):
+	name = ""
+	__id = "" #private fields
+	
+	def __init__(self, name, id):
+		Person.__init__(self, name, id)
+		self.name = name
+		self.id = id
+		
+	def printInfo(self):
+		print ""
+a = Student("keylly", "14210720037")
+
+number
+string immutable
+list []
+tuple () immutable
+set {}
+dictionary {}
+
+
+********************************************************************************
+function Student(name, id)
+{
+	Person.call(this, name, age);
+	this.name = name;
+	this.id = id;
+	this.printInfo = function(){		
+	};
+}
+var a = new Student("keylly", "14210720037");
+
+data structure: number boolean string object function
+var a = 1.2;
+var func = function(a, b) { return a+b; };
+var arr = []; arr.push() .pop() .length() .
+var person = {firstName: “kelly”, lastName: “Liu”}; // object
+
+typeof “John”; // string
+typeof [1,2,3]; // object(not array)
+typeof null; // object
+typeof undefined; // undefined
+typeof function(){} ; //function
+null === undefined; // false
+null == undefined; //true (type conversion before comparation)
+typeof NaN; //number
+
+function isArray(are) { return arr.constructor.tostring().indexof(“Array”) > -1}
+
+inheritance:
+classA.call(this, para_list);
+classB.prototype = new classA(); // var a = new myClass(); then a -> myClass.prototype
+
+function is a memory space, function name is a variable pointing to that memory.
+use variable V to call function, the object which V belongs to will be the this pointer in the function.
+
+closure: function which returns function. enable function to have local variable.
+
+prototype chain:
+when obj.xxx is called, if you do not find the property or method in the current object, you search its prototype object.
+if you define function in class’s prototype, all the objects of the class share the same function.
+var p = new Person(age);
+// p = {};
+// p._proto_ = Person.prototype;
+// Person.call(p, age);

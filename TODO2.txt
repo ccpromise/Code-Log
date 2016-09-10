@@ -1,5 +1,13 @@
 TODO:
 
+clam down and ANALYSIS it.
+cracking book
+prepare for behaviour questions.
+review algorithm when free.learn to give definition.
+
+for next week:
+continue to do leetcode. you should really calm down and analysis and find where you got stuck and how it can be solved.
+
 1\ c++ input/output from console/file
 2\ leetcode: how to solve problems
 3\ algorithm

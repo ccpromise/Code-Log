@@ -1,0 +1,27 @@
+About algorithm:
+
+1\ sort:
+	insertion bubble selection
+	quick merge heap
+
+    improvement: 3way quicksort for duplicate items, iteration merge sort, mergesort already sort    
+    complexity: quicksort O(1) space, not stable
+    			mergesort O(N) space, stable
+    			heapsort O(1) space, not stable
+    complexity analysis: quicksort and mergesort
+    
+2\ Graph:
+	2.1 Undirected Graph	
+		BFS(path) DFS(connected component)
+	2.2 Directed Graph
+		Cycle_detection Topological_order(BFS, DFS)
+	2.3 Undirected Weighted Graph
+		Min_spanning_tree
+	2.4 Directed Weighted Graph
+		Min_path
+		
+3\ map:
+	3.1 binary search tree
+		insert, delete, query, rank
+	3.2 hash table	
+		collision_dealing
