@@ -53,8 +53,16 @@ MSDN:
 2\ class vs struct
    class is reference type.When an object created, the variable which the object assigns to only holds a reference to that object.when it assigns to a new variable, the variable only holds a reference to the original data.
    struct is value type. The variable holds the real data. And assignment will copy the data. 
-   class: more complicated behaviour. support inheritance.
-   struct: new operator is not needed to create an instance of struct. can not have default constructor.
+   struct has no default constructor. Fields cannot be initiated inside unless it’s static or const. struct does not support inheritance and polymorphism.
+   struct Interval
+   {
+	public int start;
+	public int end;
+	public static int count = 0;
+	public Interval(int s, int e) {start = s; end = e;count++;}
+   }
+   Interval i = new Interval(0, 1);
+   Interval i = {0, 1};
     By contrast, the memory that is allocated for a class instance is automatically reclaimed (garbage collected) by the common language runtime when all references to the object have gone out of scope. It is not possible to deterministically destroy a class object like you can in C++.
 
 3\ ref vs out
@@ -260,8 +268,19 @@ public: explicit operator int() const {}
 12\ vector<int>::iterator:
 	find(begin, end, val);
         copy(begin, end, another_begin);
-        sort(begin, end);
+        sort(begin, end, [](Type a, Type b) { return true if a is before b; });
         reverse(begin, end);
+
+13\ struct vs class:
+	in struct, member access level is public by default. Struct does not support inheritance and polymorphism. Struct can have default constructor and constructor.
+	struct Interval
+	{
+	  int start, end;
+	  Interval():start(0), end(0) {}
+	  Interval(int s, int e): start(s), end(e) {}
+        }
+        Interval s(0, 1);
+	 Interval* s = new Interval(0, 1);
 ********************************************************************************
 class Student(Person):
 	name = ""

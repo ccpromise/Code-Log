@@ -1,5 +1,7 @@
 TODO:
 
+the next time you review leetcode, review some typical problems in medium.
+
 clam down and ANALYSIS it.
 cracking book
 prepare for behaviour questions.
