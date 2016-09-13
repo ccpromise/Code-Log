@@ -43,6 +43,7 @@ IO
 Console.ReadLine()
 Console.Read() Console.ReadKey()
 FileStream StreamReader StreamWriter
+while(str = Console.ReadLine() != null)
 
 MSDN:
 1\ namespace XXX{
@@ -169,6 +170,7 @@ string <=> number: to_string string stream
 
 INT32_MAX
 INT32_MIN
+UINT32_MAX
 rand()%N
 function<return_type(para_type_list)>
 function pointer: void (*f)(int)
@@ -184,7 +186,24 @@ sizeof(str): include \0
 strlen(str): exclude \0
 char arr[] = “ab”: sizeof() = 3 strlen() = 2
 char arr[10] = “ab”: sizeof() = 10 strlen() = 2
+sizeof(struct): byte alignment
+1\ all the offset of member must be the times of its size
+2\ the whole size of struct must be the times of each member
+struct s{char c; int a; char b} offset of c == 0(ok), offset of a == 1(add three bytes before, so offset is 4). offset of b == 9
+overall bytes = 10, not times of 4. so add 2 bytes.overall is 12 bytes.
 
+scope, lifetime and visibility of variables:
+1\ scope: the area in which the variable is available.
+	program scope, file scope, block scope, function scope
+2\ lifetime: static, automatic, dynamic
+3\ visibility: block variable is visible in inner blocks. not inner functions.because block variable is stored in stack. calling function create another frame in stack.
+remember that there are three storage area, when talking about scope, lifetime and visibility of variables, think about where they store:
+	static storage area(compelling	 time, global variables), 
+	stack(local variables), heap(dynamic allocated) 
+
+global variable:
+ int x = 2; // static duration, external linkage.
+ static int y = 2; //static duration, internal linkage.
 
 
 IO
@@ -281,6 +300,10 @@ public: explicit operator int() const {}
         }
         Interval s(0, 1);
 	 Interval* s = new Interval(0, 1);
+
+14\ constructor cannot be virtual:
+	virtual function is called through virtual table.
+	First you need have object, then you will have virtual table. virtual table is initialed at constructor. But if constructor is virtual, you cannot call constructor unless you have object. But you cannot have object unless you have constructor.
 ********************************************************************************
 class Student(Person):
 	name = ""
