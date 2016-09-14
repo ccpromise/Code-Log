@@ -5,7 +5,7 @@ the next time you review leetcode, review some typical problems in medium.
 finish Chinese resume and apply for Intel, Iqy, Shengda, eBay TP_Link and more.
 
 more os(web chat, python website) and os interview questions search online.
-cracking book -> brain teaser
+cracking book -> scalability
 clam down and ANALYSIS it.
 prepare for behaviour questions.
 review algorithm when free.learn to give definition.

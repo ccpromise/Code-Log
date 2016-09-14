@@ -12,7 +12,11 @@ About algorithm:
     
 2\ Graph:
 	2.1 Undirected Graph	
-		BFS(path) DFS(connected component)
+	 single dfs: given G and s, is v connected to s?
+	 multiple dfs: given G, is s connected to v? How many components? Compare to 				Union Find, which is also about connectivity.
+	 from dfs to bfs: given G and s, is s hasPathTo v?  
+	 Proof bfs able to find the shortest path by induction.
+	 When we come to a point that has more than one edges to explore, we choose one and save others to explore later. DFS use stack. BFS use heap. Stack is easier to implement by function frames(recursion) because function frames save environment. DFS path is long and winding. BFS is short and direct.
 	2.2 Directed Graph
 		Cycle_detection Topological_order(BFS, DFS)
 	2.3 Undirected Weighted Graph
