@@ -14,11 +14,25 @@ About algorithm:
 	2.1 Undirected Graph	
 	 single dfs: given G and s, is v connected to s?
 	 multiple dfs: given G, is s connected to v? How many components? Compare to 				Union Find, which is also about connectivity.
+	 more dfs: is graph bipartite?
 	 from dfs to bfs: given G and s, is s hasPathTo v?  
 	 Proof bfs able to find the shortest path by induction.
 	 When we come to a point that has more than one edges to explore, we choose one and save others to explore later. DFS use stack. BFS use heap. Stack is easier to implement by function frames(recursion) because function frames save environment. DFS path is long and winding. BFS is short and direct.
+
+	Symbol Graph: reuse the graph data structure where vertex are represented by integer. class SymbolGraph { int index(string name); string name(int v); Graph G() }
+	reprocess graph in constructor to efficiently support client query.
+
 	2.2 Directed Graph
+	Reachability:
+	  single-source directed paths: dfs
+	  single-source shortest directed paths: bfs
+	  mark-and-sweep garbage collection: reachability from a set of source.
 		Cycle_detection Topological_order(BFS, DFS)
+	Cycle&TopologicalSort:
+	  cycle detection: dfs on stack. Learn how to quit from stack immediately.
+	  topological sort: no cycle first. Prove postorder is correct solution.
+
+
 	2.3 Undirected Weighted Graph
 		Min_spanning_tree
 	2.4 Directed Weighted Graph
