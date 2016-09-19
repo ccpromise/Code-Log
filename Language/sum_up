@@ -1,4 +1,4 @@
-public class Student: Person
+﻿public class Student: Person
 {
 	public Student(string name, string id):base(name, id)
 	{
@@ -112,7 +112,7 @@ MSDN:
 	if reference type, will create 10 elements with null.
 	
 14\ static vs const vs readonly
-	static member is owned by class, does not belong to any instances.
+	static member is owned by class, does not belong to any instances. Initialize it when declare or it has default value.The value of static member should be decided at compling time.
 	const and readonly mean a data once initialised, cannot be modified.
 	but const member has to be initialised when you declare it.readonly member can be initialised at constructor.
 
@@ -131,6 +131,10 @@ MSDN:
 
 17\ extension methods
 	Extension methods enable you to add methods to existing types without creating a new derived type
+
+18\ .Equal: for value type, if A and B has the same type and value, return true. For struct, compare each member. 
+	For reference type, return true if A and B are the reference to the same objects.
+	You'd better to overload .Equal for your data structure.
 
 
 
