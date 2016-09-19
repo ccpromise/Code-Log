@@ -31,6 +31,9 @@ About algorithm:
 	Cycle&TopologicalSort:
 	  cycle detection: dfs on stack. Learn how to quit from stack immediately.
 	  topological sort: no cycle first. Prove postorder is correct solution.
+	StrongConnected:
+	  dfs in G in the order of reverse postorder in G-r
+	  proof.
 
 
 	2.3 Undirected Weighted Graph

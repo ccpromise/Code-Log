@@ -39,6 +39,9 @@ long: 64 bits
 
 using alias = Tuple<int,int,int>; // like typedef in c++
 
+static constructor is called by .NET to initiate static members.
+static constructor is called before any instance created or static members referred.
+
 IO
 Console.ReadLine()
 Console.Read() Console.ReadKey()
