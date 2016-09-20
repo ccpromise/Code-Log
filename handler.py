@@ -74,7 +74,11 @@ class VmHAProtectedHanlder(Handler):
         rule_prog = re.complie(rule['pattern'])
         found_op_list = []
         vm_oplist_mapping = {}
-        for line in self.log_file:
+        N = len(self.log_file)
+        i = 0
+        while(i < N):
+            line = self.log_file[i]
+            i += 1
             op_match = self.op_prog.search(line)
             if(op_match):
                 cur_opid = op_match.group(0)[:-1]
@@ -87,5 +91,13 @@ class VmHAProtectedHanlder(Handler):
                 if(passVM < totalVM):
                     if(cur_opid not in found_op_list):
                         found_op_list.append(cur_opid)
-
-
+                    line = self.log_file[i]
+                    ip_match = self.ip_prog.search(line)
+                    while(ip_match):
+                        ip = ip_match.group(0)[:-1] # match until space
+                        vm_oplist_mapping[ip] = found_op_list
+                        i += 1
+                        line = self.log_file[i]
+                        ip_match = self.ip_prog_search(line)
+        return vm_oplist_mapping
+    #problem is : the ip is not vm, maybe a cluster. You cannot count the number.
