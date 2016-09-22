@@ -35,11 +35,18 @@ About algorithm:
 	  dfs in G in the order of reverse postorder in G-r
 	  proof.
 
-
 	2.3 Undirected Weighted Graph
+	Design edge-weighted indirect graph data structure.
+	Cut property
+	Prim’s algorithm: add a vertex to existing mst each step. You should keep a marked[] to identify a vertex already in the tree. A priority queue to find the next possible edge. A edges array to store the mst.
+	Kruskal’s algorithm: add an edge to mst unless it creates cycle. Use UnionFind to detect cycle. Use priority queue to select edges.
 		Min_spanning_tree
 	2.4 Directed Weighted Graph
-		Min_path
+	Design edge-weighted directed graph data structure.
+	Consider about three cases:
+	 1) non-negative weight: index priority queue. Add a new vertex to shortest-path-tree each step
+	2) non-cycle: relax each vertex in topological order
+	3) negative, cycle: general case. Queue-based to relax every possible vertex. Time provisional to EV. Because you can get v1->…->vv in v steps. Each step, maximum E edges will be relaxed. 
 		
 3\ map:
 	3.1 binary search tree

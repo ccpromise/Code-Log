@@ -1,5 +1,9 @@
 TODO:
 
+go on with leetcode. Practise more.
+review algorithm book.
+search blog about os especially threads, concurrency, file system online.
+
 the next time you review leetcode, review some typical problems in medium.
 
 finish Chinese resume and apply for Intel, Iqy, Shengda, eBay TP_Link and more.

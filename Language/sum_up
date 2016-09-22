@@ -1,4 +1,4 @@
-﻿public class Student: Person
+public class Student: Person
 {
 	public Student(string name, string id):base(name, id)
 	{
