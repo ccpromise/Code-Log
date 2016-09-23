@@ -4,7 +4,7 @@ public static class Sort
 	{
 		// arr[0:i-1] is sorted and insert arr[i] to the right place
 		var N = arr.Count();
-		for(var i = 1; i < N; i++)
+/* 		for(var i = 1; i < N; i++)
 		{
 			var j = 0;
 			while(j < i && Less(arr[j], arr[i])) 
@@ -19,6 +19,12 @@ public static class Sort
 				k--;
 			}
 			arr[j] = tmp;
+		} */
+		for(var i = 0; i < N-1; i++) //sorted from 0 to i-1
+		{
+			for(var j = i; j > 0 && Less(arr[j], arr[j-1]); j--){
+				swap(arr, j, j-1);
+			}
 		}
 	}
 	

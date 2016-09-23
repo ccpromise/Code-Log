@@ -1,11 +1,11 @@
 public class String{
 	public static int radix = 256; // right?
-	public void SortString(IList<string> arr){
+	public void SortStringMSD(IList<string> arr){
 		// sort from left to right; suppose 8bit ASCII encoding.
 		Helper(arr, 0, 0, arr.Count()-1);
 	}
 	
-	public void Helper(IList<string> arr, int idx, int lo, int hi){
+	private void Helper(IList<string> arr, int idx, int lo, int hi){
 		if(hi >= lo) return;
 		var count = new int[String.radix+2];
 		for(var i = lo; i <= hi; i++){
@@ -26,5 +26,29 @@ public class String{
  		for(var i = 0; i < String.radix+1; i++){
  			Helper(arr, idx+1, lo+count[i], lo+count[i+1])
  		}
+	}
+	
+	public void SortStringLSD(IList<string> arr){
+		var N = arr.Count();
+		if(N == 0){
+			return;
+		}
+		var len = arr[0].Count();
+		for(var idx = len-1; idx >= 0; idx++){
+			var count = new int[radix+1];
+			for(var i = 0; i < N; i++){
+				count[arr[i][idx]+1]++;
+			}
+			for(var i = 1; i <= radix; i++){
+				count[i] += count[i-1];
+			}
+			var sorted = new string[N];
+			for(var i = 0; i < N; i++){
+				sorted[count[arr[i][idx]]++] = arr[i];
+			}
+			for(var i = 0; i < N; i++){
+				arr[i] = sorted[i];
+			}
+		}
 	}
 }

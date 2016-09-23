@@ -47,7 +47,14 @@ About algorithm:
 	 1) non-negative weight: index priority queue. Add a new vertex to shortest-path-tree each step
 	2) non-cycle: relax each vertex in topological order
 	3) negative, cycle: general case. Queue-based to relax every possible vertex. Time provisional to EV. Because you can get v1->…->vv in v steps. Each step, maximum E edges will be relaxed. 
-		
+
+3\ string:
+	3.1 string sort
+	LSD: equal length. if not equal, LSD should be adapted: implement a .charAt() method returns -1 if idx >= len
+	MSD: not equal length.Like other recursive sort algorithm(quicksort, mergesort), small subarray influence its performance a lot. Use insertion sort for small subarray.
+		 complexity analysis: C(N) = RC(N/R)+N => Nlg(R)N
+	3way-quicksort: deal with equal prefix	 
+	compare sort algorithm: stable?inplace?time complexity?extral space?
 3\ map:
 	3.1 binary search tree
 		insert, delete, query, rank
