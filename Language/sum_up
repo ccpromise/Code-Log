@@ -18,6 +18,8 @@ List<> : .Add() .Remove() .RemoveAt() .Insert(idx, item)
 		 .First() .Last()
 		 .Count() .
 		 .Sort() .Reverse()
+	  var l = new List<T>(int capacity): still cannot read/write to l[i]. You should use .Add() method to add elements.
+	 var are = new T[capacity]; // default value
 Dictionary<>: .Add(key, val) .Remove(key) .ContainsKey(key)
 	       .Count() .Keys() .Values()
 		map[key]
@@ -135,6 +137,12 @@ MSDN:
 18\ .Equal: for value type, if A and B has the same type and value, return true. For struct, compare each member. 
 	For reference type, return true if A and B are the reference to the same objects.
 	You'd better to overload .Equal for your data structure.
+
+18\ static class & static member
+The static member is always accessed by the class name, not the instance name. Only one copy of a static member exists, regardless of how many instances of the class are created. Static methods and properties cannot access non-static fields and events in their containing type, and they cannot access an instance variable of any object unless it is explicitly passed in a method parameter.
+Static methods can be overloaded but not overridden, because they belong to the class, and not to any instance of the class.
+Although a field cannot be declared as static const, a const field is essentially static in its behavior. It belongs to the type, not to instances of the type. Therefore, const fields can be accessed by using the same ClassName.MemberName notation that is used for static fields. No object instance is required.
+C# does not support static local variables (variables that are declared in method scope).
 
 
 
