@@ -1,5 +1,10 @@
 TODO:
 
+learn more about delegate and func.
+mutiple keys.
+
+After finish leetcode, do all the exercises in Algorithm book.
+
 go on with leetcode. Practise more.
 review algorithm book.
 search blog about os especially threads, concurrency, file system online.

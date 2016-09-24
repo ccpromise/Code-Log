@@ -55,6 +55,12 @@ About algorithm:
 		 complexity analysis: C(N) = RC(N/R)+N => Nlg(R)N
 	3way-quicksort: deal with equal prefix	 
 	compare sort algorithm: stable?inplace?time complexity?extral space?
+	
+	3.2 Tries
+	Symbol table: for generic type of key, if order operation needed, use BST. Otherwise hashtable. But hashtable must deal with collision.
+					if key is string, use tries.
+	2 APIs: .CharAt() -> consider the out of range
+			.IndexOfChar() -> transfer char to index in trie.
 3\ map:
 	3.1 binary search tree
 		insert, delete, query, rank
