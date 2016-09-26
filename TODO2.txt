@@ -1,7 +1,6 @@
 TODO:
 
-learn more about delegate and func.
-mutiple keys.
+leetcode review: consider invalid input.
 
 After finish leetcode, do all the exercises in Algorithm book.
 
