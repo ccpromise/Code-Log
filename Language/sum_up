@@ -17,7 +17,7 @@ var student = new Student("kelly", 14210720037)
 List<> : .Add() .Remove() .RemoveAt() .Insert(idx, item) 
 		 .First() .Last()
 		 .Count() .
-		 .Sort() .Reverse()
+		 .Sort() .Reverse()   for int[]: Array.Sort()
 	  var l = new List<T>(int capacity): still cannot read/write to l[i]. You should use .Add() method to add elements.
 	 var are = new T[capacity]; // default value
 Dictionary<>: .Add(key, val) .Remove(key) .ContainsKey(key)
@@ -33,7 +33,9 @@ value type: number boolean struct enum nullable
 reference type: string array objects
 
 .ToString() Convert.ToInt32()
-Int32.MaxValue()
+Int32.MaxValue
+int.MaxValue
+long.MaxValue
 
 Func<int,int,bool> or delegate
 

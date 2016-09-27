@@ -2,6 +2,8 @@ TODO:
 
 leetcode review: consider invalid input.
 
+algorithm, cracking book, os, language
+
 After finish leetcode, do all the exercises in Algorithm book.
 
 go on with leetcode. Practise more.

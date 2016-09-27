@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +13,7 @@ namespace Algorithm.Source_Code.Chapter1
     /// DelMin: lg(N)
     /// Elementary implementation for priority queue is O(N) for insert or delete.
     /// </summary>
-    public class PriorityQueue<K>
+    public class PriorityQueue<K> where K: IComparable<K>
     {
         private K[] arr;
         private int size;

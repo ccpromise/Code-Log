@@ -1,5 +1,10 @@
 About algorithm:
 
+0\ Container:
+	Queue, stack
+	Priority queue
+	Union Find
+
 1\ sort:
 	insertion bubble selection
 	quick merge heap
@@ -9,6 +14,14 @@ About algorithm:
     			mergesort O(N) space, stable
     			heapsort O(1) space, not stable
     complexity analysis: quicksort and mergesort
+
+1.5\ Hash table:
+	1) 2 elementary implementation, 2 advanced implementation:
+	   2 ordered implementation, 2 unordered implementation:
+		linked list, ordered array(ordered helps binary search)
+		BST, hash table.
+	2) compact recursive implementation: BST
+	   uncapsulate common ops to local function: linked list
     
 2\ Graph:
 	2.1 Undirected Graph	
@@ -68,7 +81,8 @@ About algorithm:
 		brute-force
 		state machine: suppose in index j, the restart position should be x. Then the next restart position should be [j][x](in state x, input is char at j)
 		Boyer-Moore: compare from right to left, you can skip more steps depending on the mismatch.
-		3\ map:
+
+3\ map:
 	3.1 binary search tree
 		insert, delete, query, rank
 	3.2 hash table	
