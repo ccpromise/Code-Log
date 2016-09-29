@@ -21,7 +21,7 @@ About algorithm:
 		linked list, ordered array(ordered helps binary search)
 		BST, hash table.
 	2) compact recursive implementation: BST
-	   uncapsulate common ops to local function: linked list
+	   encapsulate common ops to local function: linked list
     
 2\ Graph:
 	2.1 Undirected Graph	

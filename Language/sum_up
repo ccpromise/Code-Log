@@ -23,6 +23,7 @@ List<> : .Add() .Remove() .RemoveAt() .Insert(idx, item)
 Dictionary<>: .Add(key, val) .Remove(key) .ContainsKey(key)
 	       .Count() .Keys() .Values()
 		map[key]
+HashSet<>: .Add .Remove
 Tuple<>: .Item1 .Item2
 	cannot be modified
 Stack<>: .push() .pop() .peek()
