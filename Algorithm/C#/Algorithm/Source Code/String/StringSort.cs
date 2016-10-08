@@ -62,18 +62,19 @@ namespace Algorithm.Source_Code.Chapter3
 
         private static void MSDHelper(string[] arr, int key, int lo, int hi)
         {
-            if(hi<=lo || key==arr[0].Count())
+            if(hi<=lo)
             {
                 return;
             }
 
             var R = 256;
-            var count = new int[R+1];
+            var count = new int[R+2];
             var ordered = new string[hi - lo + 1];
 
             for (var i = lo; i <= hi; i++)
             {
-                count[arr[i][key]+1]++;
+                if(key == arr[i].Count()) count[1]++;
+                else count[arr[i][key]+2]++;
             }
             for (var i = 0; i < R; i++)
             {
@@ -81,7 +82,7 @@ namespace Algorithm.Source_Code.Chapter3
             }
             for (var i = lo; i <= hi; i++)
             {
-                var idx = count[arr[lo][key]]++;
+                var idx = count[arr[lo][key]+1]++;
 
                 ordered[idx] = arr[lo];
             }
@@ -89,9 +90,9 @@ namespace Algorithm.Source_Code.Chapter3
             {
                 arr[i + lo] = ordered[i];
             }
-            for (var i = 0; i < R; i++)
+            for (var i = 1; i <= R; i++)
             {
-                var p = lo + (i == 0 ? 0 : count[i - 1]);
+                var p = lo + count[i - 1];
                 var q = lo + count[i] - 1;
 
                 MSDHelper(arr, key + 1, p, q);

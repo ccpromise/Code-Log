@@ -11,6 +11,7 @@ public class Student: Person
 	}
 }
 var student = new Student("kelly", 14210720037)
+if(student != null)
 
 
 
@@ -22,14 +23,14 @@ List<> : .Add() .Remove() .RemoveAt() .Insert(idx, item)
 	 var are = new T[capacity]; // default value
 Dictionary<>: .Add(key, val) .Remove(key) .ContainsKey(key)
 	       .Count() .Keys() .Values()
-		map[key]
+		map[key]: key cannot be null
 HashSet<>: .Add .Remove
 Tuple<>: .Item1 .Item2
 	cannot be modified
 Stack<>: .push() .pop() .peek()
 Queue<>: .push() .pop() .peek()
-string: immutable .Substring()
-StringBuilder: .Append()
+string: immutable .Substring() str[i] = 'Q' cannot assign to.
+StringBuilder: .Append(),.ToString().use when string is modified often.
 value type: number boolean struct enum nullable
 reference type: string array objects
 
@@ -37,6 +38,11 @@ reference type: string array objects
 Int32.MaxValue
 int.MaxValue
 long.MaxValue
+
+int globalMax = 0;
+func(ref globalMax);
+
+void func(ref int m)
 
 Func<int,int,bool> or delegate
 

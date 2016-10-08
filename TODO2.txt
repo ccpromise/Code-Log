@@ -1,5 +1,9 @@
 TODO:
 
+Review c# language.Review ni code.
+
+Start to practise your analysis ability: analyse problem and judge how well you do.
+
 B tree, B+ tree
 
 leetcode review: consider invalid input.
