@@ -1,5 +1,8 @@
 TODO:
 
+ni c# code
+B tree video
+
 Review c# language.Review ni code.
 
 Start to practise your analysis ability: analyse problem and judge how well you do.

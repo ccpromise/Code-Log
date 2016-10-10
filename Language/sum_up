@@ -16,20 +16,19 @@ if(student != null)
 
 
 List<> : .Add() .Remove() .RemoveAt() .Insert(idx, item) 
-		 .First() .Last()
-		 .Count() .
+		 .First() .Last() .Count() .
 		 .Sort() .Reverse()   for int[]: Array.Sort()
 	  var l = new List<T>(int capacity): still cannot read/write to l[i]. You should use .Add() method to add elements.
 	 var are = new T[capacity]; // default value
 Dictionary<>: .Add(key, val) .Remove(key) .ContainsKey(key)
 	       .Count() .Keys() .Values()
 		map[key]: key cannot be null
-HashSet<>: .Add .Remove
+HashSet<>: .Add .Remove .Contains()
 Tuple<>: .Item1 .Item2
 	cannot be modified
-Stack<>: .push() .pop() .peek()
-Queue<>: .push() .pop() .peek()
-string: immutable .Substring() str[i] = 'Q' cannot assign to.
+Stack<>: .Push() .Pop() .Peek()
+Queue<>: .Enqueue() .Dequeue() .Peek()
+string: immutable .Substring() str[i] = 'Q' cannot assign to. str.Split()
 StringBuilder: .Append(),.ToString().use when string is modified often.
 value type: number boolean struct enum nullable
 reference type: string array objects
@@ -41,7 +40,6 @@ long.MaxValue
 
 int globalMax = 0;
 func(ref globalMax);
-
 void func(ref int m)
 
 Func<int,int,bool> or delegate
@@ -51,7 +49,7 @@ long: 64 bits
 using alias = Tuple<int,int,int>; // like typedef in c++
 
 static constructor is called by .NET to initiate static members.
-static constructor is called before any instance created or static members referred.
+static constructor is called once and called before any instance created or static members referred.
 
 IO
 Console.ReadLine()
@@ -84,7 +82,7 @@ MSDN:
    pass parameters by reference. ref should be initialised before passing to function. out is often used when you want return multiple results from a function.
 
 4\ LINQ
-	Innumerable<int> query = from item in source
+	IEnumerable<int> query = from item in source
 					where item < 3
 						select item // select String.Format(“The score is {0}.”, score)
        <=> sources.where(item => item < 3)
@@ -92,7 +90,7 @@ MSDN:
 5\ operator overload:
 	public static MyClass operator+(MyClass a, MyClass b)
 	public static explicit operator B(A obj) { return new B();}
-	static, no reference, must be friend method.
+	static method. Both operands are past by parameters.
 
 6\ abstract vs virtual:
 	abstract: both class and method. abstract class cannot instantiate. abstract method has no implementation. must be implemented by non-abstract derived class.
@@ -175,17 +173,18 @@ Student a("keylly", "14210720037");
 Student* a = new Student("keylly", "14210720037");
 
 
+for list/vector, dict/map, hashset/set, in c# it is: add insert remove , int c++, it is: insert remove
 vector<>: .push_back() .pop_back() .insert(where, item) .erase(where)
 	   .front() .back()
            .begin() .end()
-	   reverse(where, where) .sort(where, where) copy(begin, end, where)
+	   reverse(where, where) sort(where, where) copy(begin, end, where)
 	    max() min() abs()
 map<>: .find(key) a[key] = val or a.insert(pair<>(key, val))
 	.erase(key)
 	.begin() .end() a[]
 	for(map<>::iterator it = m.begin(); it != m.end(); it++){ //it->first //it->second}
 set<>: .insert() .erase() .find()
-	.begin() .end()
+	.begin() .end() .lower_bound() .upper_bound()
 	can not be indexed
 stack<>: .push() .pop() .top() .size()
 queue<>: .push() .pop() .front() .size()
@@ -241,6 +240,16 @@ infile.close()
 ofstream ofile(“file_name”);
 ofile << some_string;
 ofile.put() file.write()
+
+string s;
+cin >> s;
+istringstream iss(s);
+
+do{
+   string sub;
+   iss >> sub;
+   count << sub << ends;
+}while(its);
 
 
 MSDN：
@@ -304,7 +313,7 @@ public: explicit operator int() const {}
 
 11\ const:
 	generally const means unmodified data. it can be used in different situations.
-	1\ const int a = 10; const object must be initialed if not extern.static variable that are 		declared with no initialiser are initialised to 0.
+	1\ const int a = 10; const object must be initialed if not extern.static variable that are declared with no initialiser are initialised to 0.
 	2\ const modifies function parameter: const int* p / int* const p
  	3\ const method: not modify the object who calls it.
 
