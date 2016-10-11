@@ -1,35 +1,62 @@
-#354 Russain Doll Envelopes
-1) when you encounter some problems, first think about is there any way to walk around it. If not, try to solve it directly.
-2) 1. divide and conquer -> what is the longest increasing sequence ending with ith element?
-   2. dp -> if we already have an increasing sequence like 1,3,6,7,9, what if the next number we meet is 3, 4, 8, 10?
-3) examplify some problems so that you can find a clue.
+For each test log, we have dozens of criteria to judge if the test if pass/conditional_pass/fail.
+My internship program is to make the process automated.
 
-#297 Serialize and Deserialize Binary Tree
-	Decouple your solution. Make it modular so that keep your solution in a clear way.
+For the first step, our purpose is to we consider from the big pictures. We try to group these rules and abstract some common features from it. 
 
-#115 Distinct Subsequence
-	recursion is trivail: but still need improvement to avoid unnecessary recursion.
-	iteration: build a map for two string problem. map[m, n] how it connects to map[m-1,n], map[m-1,n-1], map[m, n-1]
-	Similar problem: longest common subsequence.
+develop a tool for more efficient log analysis.
+Before this tool developed, log analysis is mainly manual work.
+For a single log, we have multiple rules to check: whether this test pass or conditional pass or fail these rules.
+For example, we have a single rule about no more than 10 virtual machines are power off. So we will search in the log and find how many virtual machines are power off and make a pass or fail decision.
+And now we want to make this process automatically.
+The whole tool include three parts:
+	1) collect logs needed for analysis: the input is a folder path in server, we need to decompose this folder and find the correct files for a specific rule, since different rule may analysis different logs.
+	2) analysis the log: the main technic we use is regular expression. 
+	3) report the result in html format
+The main challenge:
+	1) expandability: because our rules are not finally settled, we need to make it more flexible for possible modification.
+	2) care about details
+how to show your expandability and details: example? 
 
-#363 Max Sum of Rectangle No Larger Than K
-The maximum subarray sum:
-	1)divide and conquer: what is the maximum subarray sum ending with i-th element? cum[i] = Math.Max(cum[i-1]+arr[i], arr[i])
-	2)sum[i, j] = sum[j]-sum[i];
-		cum += arr[i];
-		ret = Math.Max(ret, cum-min_cum);
-		min_cum = Math.Min(min_cum, cum); // min_cum initialize to be 0.
-		subarray sum is sum[j]-sum[i]. Suppose we already have sum[0], sum[1], ..., sum[i-1]. Now we have sum[i], we only need to subtract sum[i] using the smallest number in the set.
-The maximum subarray sum no more than k:
-	store cum[] in a set, for a new cum: find lower_bound of cum-k, ret = Math.Max(ret, cum-*lower_bound). Insert cum into set.
-	This is actually implemented by BST-> To find a min number in a set more than k. Use BST, O(lgN)
-	subarray sum is sum[j]-sum[i]. Suppose we already have s = {sum[0], sum[1], ..., sum[i-1]}. Now we have sum[i], we need to find a number x in s, so that sum[i]-x <= k, e.g x >= sum[i]-k. x is the smallest number bigger than sum[i]-k in set s. So we use BST to store the set so that we can find x fast.
-	similar problem: count numbers smaller than self in the right		
-THe maximum sub-matrix:
-	1) For each row i, calculate the sum of l-th col to r-th col elements. For each i, apply one-D solution. THe complexity should be O(n^2*m): n is smaller one of # rows and cols.
-The maximum sub-matrix no more than k:
-	sum[i, j]=the first i element of column j. For each i, apply one-D solution.The complexity should be O(n^2*m*lgm)
 
-What is the optimal subsequence in a sequence?
-1) what is the optimal subsequence containing ith element / containing ith element as the biggest value / ...
-2) if we already have a optimal subsequence like X, X, X, X, what if our next number is A,B, C, D, ....? How to adapt the optimal subsequence.
+What today?
+9/21: 
+fix logical bug. find vm into dictionary.
+Add more vm status rules and test them.
+Code a special handler for not HA protected.
+Merge no_renamed_vm rule into default handler:
+	Edit without change of clients’ code.
+Learn more about re:
+	findall, match, search
+
+9/28:
+test different case on task pass rate rule, find bugs for boundary conditions.
+By adding boundary check, solve it, and previous vm status rules should also add boundary check.
+
+I think it’s all about caring details and make your code more flexible.
+Because a single test log may not include all log features. Your code may fit in one log but fail in another one. 
+Solution: 1) carefully study. 2) more flexible code, for example: re.findall instead of re.search in case there are two targets in one line.
+Group your code. Build higher abstract layer on top of them.
+
+9/29:
+automatically collect the logs required for analysis(when you work with different rules, the log to analysis is different. So you should grab the file. This is supposed to have some basic sense on HTML. To search packages online. We use Beautiful soup to parse the HTML to a tree. We search its all href nodes. We analysis its linkage and match pattern with our field)
+
+Tools to fasten your development
+
+complete no vsan resync stuck rule: check for flag while tracking op_id
+complete host related op success rule
+complete vm migration rule
+
+
+10／11:
+define static method in a class
+learn to build new html from template by inserting content from variables into the template.
+html is basically text:
+	{{template}}  .replace(‘{{template}}’, variable)
+learn more safe operation with file:
+	with open() as fin:
+
+
+
+
+
+
