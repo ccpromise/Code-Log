@@ -1,5 +1,7 @@
 TODO:
 
+go on with leetcode dp
+
 ni c# code
 B tree video
 

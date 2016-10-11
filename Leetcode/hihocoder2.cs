@@ -1,3 +1,65 @@
+
+public int MininumDeletion(string str, bool[,] constraints){
+	var N = str.Count();
+	var dp = new int[N]; // dp[i]: the minimum deletion if the subsequence ending with str[i]
+	for(var i = 0; i < N; i++) dp[i] = 0;
+	
+	for(var i = 0; i < N; i++){
+		var min = Int32.MaxValue;
+		for(var j = 0; j < i; j++){
+			if(!constraints[str[i], str[j]])
+				min = Math.Min(min, dp[j])
+		}	
+		dp[i] = Math.Min(i, ret);
+		for(var j = 0; j < i; j++)
+			dp[j]++;
+	}
+	var ret = Int32.MaxValue;
+	foreach(var x in dp) ret = Math.Min(x, ret);
+	return ret == Int32.MaxValue ? 0 : ret;
+}
+
+public int MinimumDeletion(string str, bool[,] constraints){
+	var N = str.Count();
+	var dp = new int[26]; / // dp[i]: the minimum deletion if the subsequence ending with str[i], optimal
+	for(var i = 0; i < 26; i++) dp[i] = 0;
+	
+	for(var i = 0; i < N; i++){
+		var min = Int32.MaxValue;
+		for(var j = 0; j < 26; j++){
+			if(dp[j] != -1 && !constraints[str[i]-'a', j]){
+				min = Math.Min(min, dp[j]);
+			}
+		}
+		dp[str[i]-'a'] = Math.Min(min, ret);
+		for(var j = 0; j < 26; j++){
+			if(j != str[i]-'a') dp[j]++;
+		}
+	}
+	var ret = Int32.MaxValue;
+	foreach(var x in dp){
+		if(x != -1) ret = Math.Min(ret, x);
+	}
+	return ret == Int32.MaxValue ? 0 : ret;
+}
+
+public int MinimumDeletion(string str, bool[,] constraints){
+	var N = str.Count();
+	var dp = new int[26];// dp[i]: the longest subsequence ending with i+'a'
+	var ret = 0;
+	for(var i = 0; i < N; i++){
+		var max = 1;
+		for(var j = 0; j < 26; j++){
+			if(!constraints[str[i]-'a', j]){
+				max = Math.Max(dp[j]+1, max);
+			}
+		}
+		dp[str[i]-'a'] = max;
+		ret = Math.Max(ret, dp[str[i]-'a']);
+	}
+	return N - ret;
+}
+
  static int main(string[] args)
         {
             var n = Convert.ToInt32(Console.ReadLine());
