@@ -1,0 +1,57 @@
+//N k  N: number of task  k: each iteration time
+//x y  x: time to arrive, y: total time to complete
+//return the waiting time of each task.
+
+
+class Program{
+	class Task: IComparable<Task>{
+		public int arrival_time; // keep stable
+		public int task_time; // keep stable
+		public int enqueue_time; // time to push into the queue
+		public int left_time; // time to complete
+		public int waiting_time;
+		
+		public Task(int arrival_time, int task_time){
+			this.arrive_time = arrival_time;
+			this.task_time = task_time;
+			enqueue_time = arrival_time;
+			left_time = task_time;
+		}
+		public int CompareTo(Task other){
+			return this.enqueue_time - other.enqueue_time;
+		}
+	}
+	class Machine{
+		public int available_time;
+		public int time_slice;
+		
+		public Machine(int available_time, int time_slice){
+			this.available_time = available_time;
+			this.time_slice = time_slice;
+		}
+	}
+	
+	static void Main(){
+		var tokens = Console.ReadLine().Split();
+		var N = Convert.ToInt32(tokens[0]);
+		var k = Convert.ToInt32(tokens[1]);
+		var machine = new Machine(0, k);
+		var pq = new PriorityQueue<Task>();
+		var str = "";
+		while(str = Console.ReadLine())!= null){
+			tokens = str.Split();
+			var t = new Task(Convert.ToInt32(tokens[0]), Convert.ToInt32(tokens[1]));
+			pq.Push(t);
+		}
+		while(pq.Count() != 0){
+			var t = pq.DelMin();
+			t.enqueue_time = Math.Max(t.enqueue_time, machine.available_time) + Math.Min(machine.slice, t.left_time);
+			t.left_time = t.left_time - Math.Min(machine.slice, t.left_time);
+			machine.available_time = t.enqueue_time;	
+			if(t.left_time == 0)
+				t.waiting_time = t.enqueue_time - t.arrival_time - t.task_time;
+			else
+				pq.Push(t);
+		}
+	}
+}

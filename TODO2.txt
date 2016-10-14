@@ -1,6 +1,6 @@
 TODO:
 
-go on with leetcode dp
+go on with hard problems. Do mock interview.
 
 ni c# code
 B tree video
