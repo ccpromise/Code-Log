@@ -1,5 +1,13 @@
 TODO:
 
+review dp and then hash table problem
+
+plan: 
+1\ leetcode 1-1.5h for each day
+2\ os, database, algorithm book exercise and more algorithm(b b+) 1h for two days
+3\ python for project: stock 1-1.5h for each day
+
+
 go on with hard problems. Do mock interview.
 
 ni c# code
