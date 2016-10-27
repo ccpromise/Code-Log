@@ -1,3 +1,5 @@
+CPU:Main features of CPU: fast in speed and limited in memory space.Speed mismatch with memory and disk:1)	Cache2)	Pipeline3)	From batch processing to multiprocessing system:Batch processing: only one process will load in memoryMultiprocessing: load multiple processes in memory->address relocation(MMU)-> 
+
 IPC:
 There are two kinds of IPC generally. One is shared memory. Others are some communication channels maintained and supported by OS like pipe and message queues.
 Shared memory is very effcient because we don't need support from OS, no system call besides at first we build a shared memory space. However, shared memory require processes to manage the concurrency problem.
@@ -15,3 +17,42 @@ fork(): create a child process with the same content as parent process. call onc
 multiprocessing, Queue, Pipes
 in Linux, use .fork() for multiprocess programming.
 But in windows, there is no fork(). So use multiprocessing package in python so that the code can cross platform
+
+multithreads vs multiprocess:
+why we need it? because we want to improve efficiency, be more responsive
+multiprocess is stable. If one process is cracked, it won’t influence other threads because process has their own virtual address space. But the problem is that to fork a new process is very resource consuming.
+multithread is more efficient but less stable because threads in the same process share virtual address space with the same data and text, but different execution context, which may also cause concurrency issue.
+在Thread和Process中，应当优选Process，因为Process更稳定，而且，Process可以分布到多台机器上，而Thread最多只能分布到同一台机器的多个CPU上。
+In multiprocess, a data has independent copy in each process. but in threads they share the same copy of data so we need lock and some other policy to ensure safety.
+LOCK:
+x = x+5  # in advanced language, one line code will be split into multiple instructions. First you get x, then you add x by 5 and write back. When you write back, x may has already been changed so the new result will over-write the former result.
+The drawback of lock: 1\ block multi-thread concurrent executions which slow down efficiency. 2\ dead lock 
+
+Python解释器由于设计时有GIL全局锁，导致了多线程无法利用多核。多线程的并发在Python中就是一个美丽的梦。
+因为Python的线程虽然是真正的线程，但解释器执行代码时，有一个GIL锁：Global Interpreter Lock，任何Python线程执行前，必须先获得GIL锁，然后，每执行100条字节码，解释器就自动释放GIL锁，让别的线程有机会执行。这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。
+
+threading.local()
+For threads in the same process: each thread has its own variable stu so stu cannot be global variable. If it is local variable, you have to pass stu among function calls in a thread. Thread local is like a global dictionary. Every thread saves its variable stu in it and can get its own variable stu from thread local. 
+ThreadLocal最常用的地方就是为每个线程绑定一个数据库连接，HTTP请求，用户身份信息等，这样一个线程的所有调用到的处理函数都可以非常方便地访问这些资源。
+一个ThreadLocal变量虽然是全局变量，但每个线程都只能读写自己线程的独立副本，互不干扰。ThreadLocal解决了参数在一个线程中各个函数之间互相传递的问题。
+
+CPU intensive VS IO intensive task
+计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。
+计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。
+第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。
+IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。
+
+
+Asynchronized IO
+Asynchronized IO support multi-task in single thread.
+现代操作系统对IO操作已经做了巨大的改进，最大的特点就是支持异步IO。如果充分利用操作系统提供的异步IO支持，就可以用单进程单线程模型来执行多任务，这种全新的模型称为事件驱动模型，Nginx就是支持异步IO的Web服务器，它在单核CPU上采用单进程模型就可以高效地支持多任务。在多核CPU上，可以运行多个进程（数量与CPU核心数相同），充分利用多核CPU。由于系统总的进程数量十分有限，因此操作系统调度非常高效。用异步IO编程模型来实现多任务是一个主要的趋势。
+
+分布式
+Python的multiprocessing模块不但支持多进程，其中managers子模块还支持把多进程分布到多台机器上。一个服务进程可以作为调度者，将任务分布到其他多个进程中，依靠网络通信。由于managers模块封装很好，不必了解网络通信的细节，就可以很容易地编写分布式多进程程序。
+注意Queue的作用是用来传递任务和接收结果，每个任务的描述数据量要尽量小。比如发送一个处理日志文件的任务，就不要发送几百兆的日志文件本身，而是发送日志文件存放的完整路径，由Worker进程再去共享的磁盘上读取文件。
+
+package： 
+date time: timestamp
+collections: namedtuple, deque, defaultdict, OrderedDict
+hashlib:摘要算法
+url lib: get and post from/to server 
