@@ -1,0 +1,17 @@
+IPC:
+There are two kinds of IPC generally. One is shared memory. Others are some communication channels maintained and supported by OS like pipe and message queues.
+Shared memory is very effcient because we don't need support from OS, no system call besides at first we build a shared memory space. However, shared memory require processes to manage the concurrency problem.
+Others are less effcient but safer. Because these channels are managed by os and process use the well-defined API to communicate. It's slow because lots of system call but safer.
+
+message queue:
+	maintained by operating system. Two processes can communicate by message queues without being directly connected to each other.
+pipe:
+	connect two processes. The communication is one-way. If you want to achieve two-way communication, you need two pipes.
+
+
+Fork:
+fork(): create a child process with the same content as parent process. call once and return twice: child process returns 0, parent process returns child id.
+
+multiprocessing, Queue, Pipes
+in Linux, use .fork() for multiprocess programming.
+But in windows, there is no fork(). So use multiprocessing package in python so that the code can cross platform

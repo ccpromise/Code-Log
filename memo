@@ -1,6 +1,10 @@
 For each test log, we have dozens of criteria to judge if the test if pass/conditional_pass/fail.
 My internship program is to make the process automated.
 
+we have two main classed: one is handler, one is rule.
+For each rule, we use a class to describe it. It contains certain fields like what is the pass threshold, fail threshold, which log it deals with and so on.
+For each handler, it derives from a base class. We pass a certain test log and rule to instantiate. So that for different rule which share the same handler, we can reuse the handler.
+
 For the first step, our purpose is to we consider from the big pictures. We try to group these rules and abstract some common features from it. 
 
 develop a tool for more efficient log analysis.
@@ -54,6 +58,83 @@ html is basically text:
 	{{template}}  .replace(‘{{template}}’, variable)
 learn more safe operation with file:
 	with open() as fin:
+
+
+10/19：
+today I work with HTML:
+in python, you can use BeautifulSoup to interact with HTML DOM,
+common ops include:
+	soup = BeautifulSoup(html_text, ‘html.parser’)
+	node = soup.find(id=“key”)
+	node.next_slibing
+	node[‘class’] = 
+	node[‘onclick’] = ‘toggle(this)’
+	node.string
+	new_tag = soup.new_tag(‘a’, href = ‘’)
+	node.append(new_tag)
+	html = soup.prettify(‘utf8)
+Besides, I simulate template and build a new HTML page, techs include:
+	1\use class to dynamic control css style
+	  it works with js to add and remove className from class value
+	2\implement toggle(this) function
+
+10/24:
+Overall Summary for HTML Tech:
+1\ HTML structure:
+	<!DOCTYPE html>
+	<html>
+	  <head>
+	    <title>
+	    <meta> specifies character set, author, page description, keyword
+	    <style type=“text/css”>
+	      tr.FAIL{name: value(without “”)} .highlight{} => more techs to choose DOM
+	    <script type=“text/javascript”>
+	      var toggle = function(e)
+	  </head>
+	  <body>
+		<p> <a> <img> <table> <ul> <ol> <input type=“text/submit/radio”>
+		<div> <h> <p> <form> is block element: start from a new line
+		others are inline: not start a new line
+	  </body>
+	</html>
+
+<tag name=“value”>content</tag>
+      attribute	  
+In HTML, spaces and new lines are ignored
+pre is for preformatted text, space and new lines won’t be ignored
+
+
+2\ use javascript to control HTML DOM
+3\ use BeautifulSoup to control HTML DOM
+	t = soup.new_tag
+	t[‘class’] = 
+	t.get(‘href’)
+	s.append(t)
+	soup.find(id = “”)
+	html = soup.prettify(‘utf8’)
+4\ css attribute
+	selector: by tag name, by class, by id
+	p.ClassName {}
+	#Id {}
+	a:hover {}
+	td a {} // for a in td
+	
+	background-color
+	color
+	font-family
+	font-size
+	text-align
+
+10/26:
+1\ new dev tools for python: python interpreter & Sublime Text
+	build your environment, use pip3 to download packages.
+2\ error and debug in python using logging, without IDE
+	different level, write log info to files
+3\ IO: with open(‘file’, ‘rb’/‘r’/‘w’) as f:
+		f.read() f.readlines() f.write()
+4\ Process and Thread:
+	fork(): create a child process with the same content as parent process. call once and return twice: child process returns 0, parent process returns child id.
+
 
 
 
