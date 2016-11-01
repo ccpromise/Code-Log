@@ -359,7 +359,13 @@ tuple () immutable
 set {}
 dictionary {}
 
+A variable is a label for a location in memory. In statically typed languages, variables have predetermined types, and a variable can only be used to hold values of that type. In Python, we may reuse the same variable to store values of any type.
 
+Not all variables are accessible from all parts of our program, and not all variables exist for the same amount of time. Where a variable is accessible and how long it exists depend on how it is defined. We call the part of a program where a variable is accessible its scope, and the duration for which the variable exists its lifetime.
+
+A variable which is defined in the main body of a file is called a global variable. It will be visible throughout the file, and also inside any file which imports that file. 
+
+A variable which is defined inside a function is local to that function. It is accessible from the point at which it is defined until the end of the function, and exists for as long as the function is executing. 
 ********************************************************************************
 function Student(name, id)
 {
@@ -395,7 +401,27 @@ classB.prototype = new classA(); // var a = new myClass(); then a -> myClass.pro
 function is a memory space, function name is a variable pointing to that memory.
 use variable V to call function, the object which V belongs to will be the this pointer in the function.
 
+about scope, refer to http://www.saltycrane.com/blog/2008/01/python-variable-scope-notes/
+
+
 closure: function which returns function. enable function to have local variable.
+The use of closures and factory functions is the most common, and powerful, use for inner functions. In most cases, when you see a decorated function, the decorator is a factory function which takes a function as argument, and returns a new function which includes the old function inside the closure. 
+
+def generate_power(exponent):
+    def decorator(f):
+        def inner(*args):
+            result = f(*args)
+            return exponent**result
+        return inner
+    return decorator
+@generate_power(2)
+def raise_two(n):
+    return n
+print(raise_two(7))
+@generate_power(3)
+def raise_three(n):
+    return n
+print(raise_two(5))
 
 prototype chain:
 when obj.xxx is called, if you do not find the property or method in the current object, you search its prototype object.
