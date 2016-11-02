@@ -84,9 +84,18 @@ collections: namedtuple, deque, defaultdict, OrderedDict
 hashlib:摘要算法
 url lib: get and post from/to server 
 
-
-
 Linux Command About Process:
 ps: information about current process
 top: information about all the processes(CPU, memory, etc) -Activity Monitor
 kill: stop a process
+
+How to edit path in Mac OS:
+sudo nano /.bash_profile
+enter export PATH=“$PATH:/usr/local/mysql/bin”
+clt+o to save the change clt+x to exit
+source /.bash_profile to force it execute.
+
+服务器端编程：对每一个http请求进行响应，返回不同的内容
+
+yield from: call a sub-generator in a generator. Coroutine will suspend here and thread is able to execute other coroutines in the same thread.
+
