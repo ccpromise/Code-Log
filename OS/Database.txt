@@ -2,3 +2,85 @@
 为了便于程序保存和读取数据，而且，能直接通过条件快速查询到指定的数据，就出现了数据库（Database）这种专门用于集中存储和查询的软件。
 
 在关系数据库中，这种基于表（Table）的一对多的关系就是关系数据库的基础。
+
+A database is a separate application that stores a collection of data. Each database has one or more distinct APIs for creating, accessing, managing, searching and replicating the data it holds.
+
+Other kinds of data stores can be used, such as files on the file system or large hash tables in memory but data fetching and writing would not be so fast and easy with those types of systems.
+
+So nowadays, we use relational database management systems (RDBMS) to store and manage huge volume of data. This is called relational database because all the data is stored into different tables and relations are established using primary keys or other keys known as foreign keys.
+
+LOG IN:
+mysql -h host -u user -p
+host is the server where SQL server is running, not necessarily on your own computer.
+
+QUERY ENVIRONMENT:
+select user();
+select version()
+select now();
+select curdate();
+select current_date;
+select sin(pi()/3);
+select database();
+
+use database();
+show tables;
+describe table_name;
+
+CREATE TABLE:
+create table pet(name varchar(20), species varchar(20), owner varchar(20), birth date);
+show tables;
+describe pet;
+
+CHAR
+Used to store character string value of fixed length.
+It's 50% faster than VARCHAR.
+Uses static memory allocation.
+VARCHAR
+Used to store variable length alphanumeric data.
+Uses dynamic memory allocation*.
+
+INITIATE TABLE:
+load data local infile '~/Documents/pets.txt' into table pet;
+insert into pet values ('Puffball','Diane','hamster','f','1999-03-30',NULL);
+
+Retrieve Information from a Table:
+select statement is to pull information from a table:
+SELECT what_to_select
+FROM which_table
+WHERE conditions_to_satisfy;
+what_to_select indicates what you want to see. This can be a list of columns, or * to indicate “all columns.” which_table indicates the table from which you want to retrieve data. The WHERE clause is optional. If it is present, conditions_to_satisfy specifies one or more conditions that rows must satisfy to qualify for retrieval.
+
+select * from pet;
+select name from pet where species=“dog” and sex=“m”;
+select name, owner from pet;
+select distinct owner from pet;
+select * from pet order by birth desc;
+select name, species, birth from pet order by species, birth;
+select name, birth, timestampdiff(year, birth, curdate()) as Age from pet order by Age;
+select name, birth, death from pet where death is not NULL;
+
+timestampdiff(year, birth, curdate()) as Age
+year(curdate()) month(curdate()) dayofmonth(curdate())
+date_add(curdate(), interval 1 month);
+mod(month(curdate()), 12)+1;
+
+NULL operator: use is or is not to judge. Do not use = > <, etc. a <> 1  ==== a != 1
+
+Regular Expression
+select * from pet where name regexp ‘^b’  => it’s like re.find(), match will success if pattern matches anywhere in the value. Case insensitive. Use regexp binary to make case sensitive.
+select * from pet where name regexp ‘^.{5}$’ => name of 5 characters.
+
+Group Select:
+select species, count(*) from pet group by species;
+select species, sex, count(*) from pet group by species, sex;
+
+Join More Than One Tables:
+select t1.name, t1.sex, t2.name, t2.sex, t1.species
+from pet as p1 INNER JOIN pet as p2
+on t1.species=t2.species and p1.sex=‘f’ and p2.sex=‘m’
+// on: only rows satisfying these condition will be selected.
+
+delete from pet where name = “” and owner=“”;
+update pet set birth=“” where name=“Bob”
+
+
