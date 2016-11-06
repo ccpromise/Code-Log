@@ -365,7 +365,67 @@ Not all variables are accessible from all parts of our program, and not all vari
 
 A variable which is defined in the main body of a file is called a global variable. It will be visible throughout the file, and also inside any file which imports that file. 
 
-A variable which is defined inside a function is local to that function. It is accessible from the point at which it is defined until the end of the function, and exists for as long as the function is executing. 
+A variable which is defined inside a function is local to that function. It is accessible from the point at which it is defined until the end of the function, and exists for as long as the function is executing.
+
+about scope, refer to http://www.saltycrane.com/blog/2008/01/python-variable-scope-notes/
+
+closure: function which returns function. enable function to have local variable.
+The use of closures and factory functions is the most common, and powerful, use for inner functions. In most cases, when you see a decorated function, the decorator is a factory function which takes a function as argument, and returns a new function which includes the old function inside the closure. 
+
+def generate_power(exponent):
+    def decorator(f):
+        def inner(*args):
+            result = f(*args)
+            return exponent**result
+        return inner
+    return decorator
+@generate_power(2)
+def raise_two(n):
+    return n
+print(raise_two(7))
+@generate_power(3)
+def raise_three(n):
+    return n
+print(raise_two(5)) 
+
+about class vs instance property&&namespace: https://www.toptal.com/python/python-class-attributes-an-overly-thorough-guide
+Whenever we assign or retrieve any object attribute like temperature, as show above, Python searches it in the object's __dict__ dictionary.
+
+
+good tutorial for python: http://www.programiz.com/python-programming/
+
+
+property:http://www.programiz.com/python-programming/property
+def getx(self): return _x
+def setx(self, val): _x = val
+x = property(getx, setx)
+when you call instance.x = 1, you actually call instance.setx(1)
+use decorate
+@property 
+def x_old(self): return _x
+Syntax sugar for: x_new = property(x_old) create property with only getter. when you call instance.x_new, instance.x_old will be called. x_new becomes a property. x_old is a method
+@x.setter
+def x(self. val): _x = val
+
+def __getattr__(self, x): 
+   return ….
+you can use a = instance.xxxx => it give instance.__getattr__(xxxx)
+
+__new__ vs __init__
+Use __new__ when you need to control the creation of a new instance. Use __init__ when you need to control initialization of a new instance.
+__new__ is the first step of instance creation. It's called first, and is responsible for returning a new instance of your class. In contrast, __init__ doesn't return anything; it's only responsible for initializing the instance after it's been created.
+In general, you shouldn't need to override __new__ unless you're subclassing an immutable type like str, int, unicode or tuple.
+
+metaclass:
+A metaclass is the class of a class. Like a class defines how an instance of the class behaves, a metaclass defines how a class behaves. A class is an instance of a metaclass.
+A class is an instance of metaclass.
+An object is an instance of class.
+To create objects, first you need to create class using __new__. 
+To create a class, the interpreter needs name of the class, base class of the class and attributes of the class. Pass all the information to type will return a class.
+Type is the default metaclass of all classed. Calling type(name, base, attrs) will return a class.
+When you call obj.X, interpreter will first find X in instance namespace. If not here, find X in class namespace. If not here, find X in metaclass namespace.
+
+In python, it’s not necessary to call base.__init__ in child.__init__. If you do not need information from base class, then you do not need to call it.
 ********************************************************************************
 function Student(name, id)
 {
@@ -401,27 +461,6 @@ classB.prototype = new classA(); // var a = new myClass(); then a -> myClass.pro
 function is a memory space, function name is a variable pointing to that memory.
 use variable V to call function, the object which V belongs to will be the this pointer in the function.
 
-about scope, refer to http://www.saltycrane.com/blog/2008/01/python-variable-scope-notes/
-
-
-closure: function which returns function. enable function to have local variable.
-The use of closures and factory functions is the most common, and powerful, use for inner functions. In most cases, when you see a decorated function, the decorator is a factory function which takes a function as argument, and returns a new function which includes the old function inside the closure. 
-
-def generate_power(exponent):
-    def decorator(f):
-        def inner(*args):
-            result = f(*args)
-            return exponent**result
-        return inner
-    return decorator
-@generate_power(2)
-def raise_two(n):
-    return n
-print(raise_two(7))
-@generate_power(3)
-def raise_three(n):
-    return n
-print(raise_two(5))
 
 prototype chain:
 when obj.xxx is called, if you do not find the property or method in the current object, you search its prototype object.
