@@ -20,13 +20,14 @@ select now();
 select curdate();
 select current_date;
 select sin(pi()/3);
-select database();
 
+show databases;
 use database();
 show tables;
 describe table_name;
 
 CREATE TABLE:
+create database menagerie;
 create table pet(name varchar(20), species varchar(20), owner varchar(20), birth date);
 show tables;
 describe pet;
@@ -42,6 +43,7 @@ Uses dynamic memory allocation*.
 INITIATE TABLE:
 load data local infile '~/Documents/pets.txt' into table pet;
 insert into pet values ('Puffball','Diane','hamster','f','1999-03-30',NULL);
+
 
 Retrieve Information from a Table:
 select statement is to pull information from a table:
@@ -82,5 +84,14 @@ on t1.species=t2.species and p1.sex=‘f’ and p2.sex=‘m’
 
 delete from pet where name = “” and owner=“”;
 update pet set birth=“” where name=“Bob”
+
+create table shop(article int(4) default ‘0000’ not NULL, 
+dealer char(20) default ‘’ not NULL, 
+price double(16, 2) default ‘0.00’ not NULL);
+insert into shop values(1, ‘A’, 3.45), (1, ‘B’, 3.99), (2, ‘A’, 10.99);
+select * from shop;
+select max(prices) as max_price from shop;
+select article, dealer, price from shop where price=(select max(price) from shop);
+select article, max(price) from shop group by article;
 
 

@@ -426,6 +426,25 @@ Type is the default metaclass of all classed. Calling type(name, base, attrs) wi
 When you call obj.X, interpreter will first find X in instance namespace. If not here, find X in class namespace. If not here, find X in metaclass namespace.
 
 In python, it’s not necessary to call base.__init__ in child.__init__. If you do not need information from base class, then you do not need to call it.
+
+More about Functions:
+Default Argument Values: def ask_ok(prompt, retries=4, complaint='Yes or no, please!')
+Important warning: The default value is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. 
+def f(a, L=[]):
+    L.append(a)
+    return L
+print f(1)  # [1]
+print f(2)  # [1,2]
+print f(3)  # [1,2,3]
+
+keyword arguments:In a function call, keyword arguments must follow positional arguments and their order is not important
+When a final formal parameter of the form **name is present, it receives a dictionary (see Mapping Types — dict) containing all keyword arguments except for those corresponding to a formal parameter. This may be combined with a formal parameter of the form *name (described in the next subsection) which receives a tuple containing the positional arguments beyond the formal parameter list. (*name must occur before **name.):
+def cheeseshop(kind, *arguments, **keywords):  # arguments is a tuple, keywords is a dictionary.
+can be called like: cheeseshop("Limburger", "It's very runny, sir.",
+           "It's really very, VERY runny, sir.",
+           shopkeeper='Michael Palin',
+           client="John Cleese",
+           sketch="Cheese Shop Sketch")
 ********************************************************************************
 function Student(name, id)
 {
