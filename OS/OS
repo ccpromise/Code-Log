@@ -1,4 +1,12 @@
-CPU:Main features of CPU: fast in speed and limited in memory space.Speed mismatch with memory and disk:1)	Cache2)	Pipeline3)	From batch processing to multiprocessing system:Batch processing: only one process will load in memoryMultiprocessing: load multiple processes in memory->address relocation(MMU)-> 
+CPU:
+Main features of CPU: fast in speed and limited in memory space.
+Speed mismatch with memory and disk:
+1)	Cache
+2)	Pipeline
+3)	From batch processing to multiprocessing system:
+Batch processing: only one process will load in memory
+Multiprocessing: load multiple processes in memory->address relocation(MMU)
+-> 
 
 IPC:
 There are two kinds of IPC generally. One is shared memory. Others are some communication channels maintained and supported by OS like pipe and message queues.
@@ -99,3 +107,13 @@ source /.bash_profile to force it execute.
 
 yield from: call a sub-generator in a generator. Coroutine will suspend here and thread is able to execute other coroutines in the same thread.
 
+
+规范把 HTTP 请求分为三个部分：状态行、请求头、消息主体。类似于下面这样：
+<method> <request-URL> <version>
+<headers>
+
+<entity-body>
+协议规定 POST 提交的数据必须放在消息主体（entity-body）中，但协议并没有规定数据必须使用什么编码方式。
+服务端通常是根据请求头（headers）中的Content-Type字段来获知请求中的消息主体是用何种方式编码，再对主体进行解析。
+application/x-www-form-urlencoded <form>
+application/json 这个 Content-Type 作为响应头大家肯定不陌生。实际上，现在越来越多的人把它作为请求头，用来告诉服务端消息主体是序列化后的 JSON 字符串。

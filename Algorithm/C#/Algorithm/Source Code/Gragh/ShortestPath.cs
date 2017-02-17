@@ -86,7 +86,7 @@ namespace Algorithm.Source_Code.Chapter3
     		}
     		if(idx <  g.numV()-1)
     		{
-    			visitopologicalOrder(idx+1);
+    			visitt(opologicalOrder(idx+1));
     		}    		
     	}
     }

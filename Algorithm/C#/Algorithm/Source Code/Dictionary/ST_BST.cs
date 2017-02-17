@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ namespace Algorithm.Source_Code.Chapter3
 {
     /// <summary>
     /// The pros of ST_LinkedList is that insert or delete in a linked list is very fast. But search is relevantly slow.
-    /// Which is opposite to ordered array implementation. Insertation and deletation is slow but search is fast.
+    ///// Which is opposite to ordered array implementation. Insertation and deletation is slow but search is fast.
     /// BST is to combine the pros of linked list and ordered array.
     /// The different between BST and linked list is that for each BST node, it points to another two nodes.
     /// 

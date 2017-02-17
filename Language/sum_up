@@ -13,7 +13,9 @@ public class Student: Person
 var student = new Student("kelly", 14210720037)
 if(student != null)
 
-
+override & overload:
+overload is a set of functions of the same name but different signatures.
+override is for virtual function in base class, derived class provides its own implementation.
 
 List<> : .Add() .Remove() .RemoveAt() .Insert(idx, item) 
 		 .First() .Last() .Count() .
@@ -30,6 +32,7 @@ Stack<>: .Push() .Pop() .Peek()
 Queue<>: .Enqueue() .Dequeue() .Peek()
 string: immutable .Substring() str[i] = 'Q' cannot assign to. str.Split()
 StringBuilder: .Append(),.ToString().use when string is modified often.
+
 value type: number boolean struct enum nullable
 reference type: string array objects
 
@@ -340,9 +343,6 @@ public: explicit operator int() const {}
 	First you need have object, then you will have virtual table. virtual table is initialed at constructor. But if constructor is virtual, you cannot call constructor unless you have object. But you cannot have object unless you have constructor.
 ********************************************************************************
 class Student(Person):
-	name = ""
-	__id = "" #private fields
-	
 	def __init__(self, name, id):
 		Person.__init__(self, name, id)
 		self.name = name
@@ -359,7 +359,7 @@ tuple () immutable
 set {}
 dictionary {}
 
-A variable is a label for a location in memory. In statically typed languages, variables have predetermined types, and a variable can only be used to hold values of that type. In Python, we may reuse the same variable to store values of any type.
+A variable is a lable for a location in memory. In statically typed languages, variables have predetermined types, and a variable can only be used to hold values of that type. In Python, we may reuse the same variable to store values of any type.
 
 Not all variables are accessible from all parts of our program, and not all variables exist for the same amount of time. Where a variable is accessible and how long it exists depend on how it is defined. We call the part of a program where a variable is accessible its scope, and the duration for which the variable exists its lifetime.
 
@@ -445,6 +445,8 @@ can be called like: cheeseshop("Limburger", "It's very runny, sir.",
            shopkeeper='Michael Palin',
            client="John Cleese",
            sketch="Cheese Shop Sketch")
+
+ var_keyword: a dict of keyword arguments that aren't bound to any other parameters. This corresponds to  **kwargs parameter.
 ********************************************************************************
 function Student(name, id)
 {

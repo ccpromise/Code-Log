@@ -1,5 +1,13 @@
 TODO:
 
+You do not need to work it out. You need to think about it, analysis it. Thinking process is very important
+
+1\ resume: talk about your project and other behaviour questions
+2\ leetcode and algorithm: string & two pointers. hash table. Binary search. tree, dp
+3\ language: c# c++ python
+3\ others: os network linux
+
+
 review dp and then hash table problem
 
 plan: 

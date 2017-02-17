@@ -1,15 +1,21 @@
 About algorithm:
 
+container: use basic array and list to implement stack, queue, priority-queue and union find. Priority-queue and union find are helpful in real problems.
+sort: implement and improve sorting algorithm. Analyse the complexity.
+search
+graph                  
+
+
 0\ Container:
 	Queue, stack
 	Priority queue
 	Union Find
-
+I
 1\ sort:
 	insertion bubble selection
 	quick merge heap
 
-    improvement: 3way quicksort for duplicate items, iteration merge sort, mergesort already sort    
+    improvement: 3way quicksort for duplicate items, iteration merge sort, mergesort already sort    of
     complexity: quicksort O(1) space, not stable
     			mergesort O(N) space, stable
     			heapsort O(1) space, not stable

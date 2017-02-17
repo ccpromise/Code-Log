@@ -14,6 +14,7 @@
             if(j == m){
                 return i;
             }
+            i ++;
         }
         return -1;
     }
@@ -57,7 +58,7 @@
             if(j == -1) return right-m-1;
             if(!dic.ContainsKey(s[right-(m-1-j)])) right += m;
             else{
-                var skip = j - s[right-(m-1-j)];
+                var skip = j - dic[s[right-(m-1-j)]];
                 skip = Math.Max(skip, 1);
                 right += skip;
             }
